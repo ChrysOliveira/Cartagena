@@ -12,3 +12,17 @@ C:\Users\chrys\OneDrive\Documentos\Projetos\Sistema Autonomo\Sistema Autonomo\ob
 C:\Users\chrys\OneDrive\Documentos\Projetos\Sistema Autonomo\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CopyComplete
 C:\Users\chrys\OneDrive\Documentos\Projetos\Sistema Autonomo\Sistema Autonomo\obj\Debug\Sistema Autonomo.exe
 C:\Users\chrys\OneDrive\Documentos\Projetos\Sistema Autonomo\Sistema Autonomo\obj\Debug\Sistema Autonomo.pdb
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\bin\Debug\Sistema Autonomo.exe.config
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\bin\Debug\Sistema Autonomo.exe
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\bin\Debug\Sistema Autonomo.pdb
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\bin\Debug\CartagenaServer.dll
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\bin\Debug\CartagenaServer.xml
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.AssemblyReference.cache
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.SuggestedBindingRedirects.cache
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.frmInicial.resources
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Properties.Resources.resources
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.GenerateResource.cache
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CoreCompileInputs.cache
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CopyComplete
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.exe
+C:\Users\beatr\OneDrive\Documentos\Projetos Chrys\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.pdb
