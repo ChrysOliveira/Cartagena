@@ -439,6 +439,7 @@
             this.Controls.Add(this.btnConsultarVez);
             this.Name = "frmInicial";
             this.Text = "Cartagena Monteria";
+            this.Load += new System.EventHandler(this.frmInicial_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
