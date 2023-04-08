@@ -43,6 +43,7 @@ namespace Sistema_Autonomo
 
             string retorno = Jogo.ConsultarMao(idJogador,senhaJogador);
 
+            painelJogo.Visible = true;
 
         }
 
@@ -136,6 +137,31 @@ namespace Sistema_Autonomo
             Jogo.Jogar(idJogador, senhaJogador, int.Parse(txbPosicaoAvancar.Text), txbSimboloAvancar.Text);
         }
 
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void PainelLoob_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void lblIdPartidaCriada_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txbNomeNovaPartida_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnCriarNovaPartida_Click(object sender, EventArgs e)
         {
 
@@ -169,6 +195,9 @@ namespace Sistema_Autonomo
                 .Replace("\r","").Split('\n').ToList();
 
             listaJogadores.ForEach(jogador => lsvListaJogadoresPartida.Items.Add(jogador));
+
+            PainelLoob.Visible = true;
+
 
         }
     }
