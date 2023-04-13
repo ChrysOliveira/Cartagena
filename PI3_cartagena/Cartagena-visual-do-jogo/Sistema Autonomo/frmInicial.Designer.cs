@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label exibeVez;
             this.btnConsultarVez = new System.Windows.Forms.Button();
             this.lsbListaPartidas = new System.Windows.Forms.ListBox();
             this.txbNomeNovaPartida = new System.Windows.Forms.TextBox();
@@ -67,32 +68,52 @@
             this.txbPosicaoAvancar = new System.Windows.Forms.TextBox();
             this.PainelLoob = new System.Windows.Forms.Panel();
             this.painelJogo = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.listView1 = new System.Windows.Forms.ListView();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btPular = new System.Windows.Forms.Button();
+            this.btVoltar = new System.Windows.Forms.Button();
+            this.Cartas = new System.Windows.Forms.CheckedListBox();
+            this.piratas = new System.Windows.Forms.CheckedListBox();
+            this.btJogar = new System.Windows.Forms.Button();
+            this.Jogadores = new System.Windows.Forms.ListView();
+            this.Tabuleiro = new System.Windows.Forms.Panel();
+            this.Controles_Cris = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.Controles_Cris = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
-            this.Tabuleiro = new System.Windows.Forms.Panel();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.Cartas = new System.Windows.Forms.CheckedListBox();
-            this.piratas = new System.Windows.Forms.CheckedListBox();
-            this.btJogar = new System.Windows.Forms.Button();
-            this.btPular = new System.Windows.Forms.Button();
-            this.btVoltar = new System.Windows.Forms.Button();
-            this.Jogadores = new System.Windows.Forms.ListView();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            exibeVez = new System.Windows.Forms.Label();
             this.PainelLoob.SuspendLayout();
             this.painelJogo.SuspendLayout();
+            this.panel5.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.Tabuleiro.SuspendLayout();
+            this.Controles_Cris.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.Controles_Cris.SuspendLayout();
-            this.Tabuleiro.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // exibeVez
+            // 
+            exibeVez.AutoSize = true;
+            exibeVez.Location = new System.Drawing.Point(17, 33);
+            exibeVez.MaximumSize = new System.Drawing.Size(139, 143);
+            exibeVez.Name = "exibeVez";
+            exibeVez.Size = new System.Drawing.Size(35, 13);
+            exibeVez.TabIndex = 1;
+            exibeVez.Text = "label5";
+            exibeVez.Click += new System.EventHandler(this.exibeVez_Click);
             // 
             // btnConsultarVez
             // 
@@ -130,6 +151,7 @@
             this.txbNomeNovaPartida.Name = "txbNomeNovaPartida";
             this.txbNomeNovaPartida.Size = new System.Drawing.Size(113, 20);
             this.txbNomeNovaPartida.TabIndex = 2;
+            this.txbNomeNovaPartida.TextChanged += new System.EventHandler(this.txbNomeNovaPartida_TextChanged);
             // 
             // lblNomeNovaPartida
             // 
@@ -212,6 +234,7 @@
             this.lblIdPartidaCriada.Size = new System.Drawing.Size(104, 13);
             this.lblIdPartidaCriada.TabIndex = 8;
             this.lblIdPartidaCriada.Text = "Id da partida criada: ";
+            this.lblIdPartidaCriada.Click += new System.EventHandler(this.lblIdPartidaCriada_Click);
             // 
             // lblSenhaPartidaEntrar
             // 
@@ -318,14 +341,15 @@
             // lblCartasNaMao
             // 
             this.lblCartasNaMao.AutoSize = true;
-            this.lblCartasNaMao.Location = new System.Drawing.Point(18, 49);
+            this.lblCartasNaMao.Location = new System.Drawing.Point(105, 90);
             this.lblCartasNaMao.Name = "lblCartasNaMao";
             this.lblCartasNaMao.Size = new System.Drawing.Size(0, 13);
             this.lblCartasNaMao.TabIndex = 19;
+            this.lblCartasNaMao.Click += new System.EventHandler(this.lblCartasNaMao_Click);
             // 
             // btnExibirCartasEmMao
             // 
-            this.btnExibirCartasEmMao.Location = new System.Drawing.Point(228, 341);
+            this.btnExibirCartasEmMao.Location = new System.Drawing.Point(33, 23);
             this.btnExibirCartasEmMao.Name = "btnExibirCartasEmMao";
             this.btnExibirCartasEmMao.Size = new System.Drawing.Size(139, 23);
             this.btnExibirCartasEmMao.TabIndex = 20;
@@ -335,7 +359,7 @@
             // 
             // btnExibirTabuleiro
             // 
-            this.btnExibirTabuleiro.Location = new System.Drawing.Point(148, 37);
+            this.btnExibirTabuleiro.Location = new System.Drawing.Point(23, 11);
             this.btnExibirTabuleiro.Name = "btnExibirTabuleiro";
             this.btnExibirTabuleiro.Size = new System.Drawing.Size(139, 23);
             this.btnExibirTabuleiro.TabIndex = 22;
@@ -346,14 +370,15 @@
             // lblTabuleiro
             // 
             this.lblTabuleiro.AutoSize = true;
-            this.lblTabuleiro.Location = new System.Drawing.Point(173, 49);
+            this.lblTabuleiro.Location = new System.Drawing.Point(35, 50);
             this.lblTabuleiro.Name = "lblTabuleiro";
-            this.lblTabuleiro.Size = new System.Drawing.Size(0, 13);
+            this.lblTabuleiro.Size = new System.Drawing.Size(91, 13);
             this.lblTabuleiro.TabIndex = 21;
+            this.lblTabuleiro.Text = "aqui ta o tabuleiro";
             // 
             // btnJogadorVez
             // 
-            this.btnJogadorVez.Location = new System.Drawing.Point(27, 41);
+            this.btnJogadorVez.Location = new System.Drawing.Point(95, 59);
             this.btnJogadorVez.Name = "btnJogadorVez";
             this.btnJogadorVez.Size = new System.Drawing.Size(139, 23);
             this.btnJogadorVez.TabIndex = 23;
@@ -364,14 +389,15 @@
             // lblJogadorVez
             // 
             this.lblJogadorVez.AutoSize = true;
-            this.lblJogadorVez.Location = new System.Drawing.Point(331, 52);
+            this.lblJogadorVez.Location = new System.Drawing.Point(35, 50);
             this.lblJogadorVez.Name = "lblJogadorVez";
-            this.lblJogadorVez.Size = new System.Drawing.Size(0, 13);
+            this.lblJogadorVez.Size = new System.Drawing.Size(91, 13);
             this.lblJogadorVez.TabIndex = 24;
+            this.lblJogadorVez.Text = "aqui ta o tabuleiro";
             // 
             // btnPularVez
             // 
-            this.btnPularVez.Location = new System.Drawing.Point(337, 115);
+            this.btnPularVez.Location = new System.Drawing.Point(354, 65);
             this.btnPularVez.Name = "btnPularVez";
             this.btnPularVez.Size = new System.Drawing.Size(139, 23);
             this.btnPularVez.TabIndex = 25;
@@ -383,15 +409,16 @@
             // 
             this.lblInfoAcoes.AutoSize = true;
             this.lblInfoAcoes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoAcoes.Location = new System.Drawing.Point(387, 90);
+            this.lblInfoAcoes.Location = new System.Drawing.Point(404, 40);
             this.lblInfoAcoes.Name = "lblInfoAcoes";
             this.lblInfoAcoes.Size = new System.Drawing.Size(42, 13);
             this.lblInfoAcoes.TabIndex = 26;
             this.lblInfoAcoes.Text = "Acoes";
+            this.lblInfoAcoes.Click += new System.EventHandler(this.lblInfoAcoes_Click);
             // 
             // btnMoverPirataRetornar
             // 
-            this.btnMoverPirataRetornar.Location = new System.Drawing.Point(337, 204);
+            this.btnMoverPirataRetornar.Location = new System.Drawing.Point(354, 153);
             this.btnMoverPirataRetornar.Name = "btnMoverPirataRetornar";
             this.btnMoverPirataRetornar.Size = new System.Drawing.Size(139, 23);
             this.btnMoverPirataRetornar.TabIndex = 28;
@@ -401,15 +428,16 @@
             // 
             // txbPosicaoRetornar
             // 
-            this.txbPosicaoRetornar.Location = new System.Drawing.Point(337, 178);
+            this.txbPosicaoRetornar.Location = new System.Drawing.Point(354, 127);
             this.txbPosicaoRetornar.Name = "txbPosicaoRetornar";
             this.txbPosicaoRetornar.Size = new System.Drawing.Size(139, 20);
             this.txbPosicaoRetornar.TabIndex = 29;
+            this.txbPosicaoRetornar.TextChanged += new System.EventHandler(this.txbPosicaoRetornar_TextChanged);
             // 
             // lblPosicaoRetornar
             // 
             this.lblPosicaoRetornar.AutoSize = true;
-            this.lblPosicaoRetornar.Location = new System.Drawing.Point(284, 185);
+            this.lblPosicaoRetornar.Location = new System.Drawing.Point(301, 134);
             this.lblPosicaoRetornar.Name = "lblPosicaoRetornar";
             this.lblPosicaoRetornar.Size = new System.Drawing.Size(47, 13);
             this.lblPosicaoRetornar.TabIndex = 30;
@@ -418,7 +446,7 @@
             // lblHistorico
             // 
             this.lblHistorico.AutoSize = true;
-            this.lblHistorico.Location = new System.Drawing.Point(646, 258);
+            this.lblHistorico.Location = new System.Drawing.Point(188, 90);
             this.lblHistorico.Name = "lblHistorico";
             this.lblHistorico.Size = new System.Drawing.Size(0, 13);
             this.lblHistorico.TabIndex = 32;
@@ -436,7 +464,7 @@
             // lblSimboloAvancar
             // 
             this.lblSimboloAvancar.AutoSize = true;
-            this.lblSimboloAvancar.Location = new System.Drawing.Point(284, 308);
+            this.lblSimboloAvancar.Location = new System.Drawing.Point(301, 257);
             this.lblSimboloAvancar.Name = "lblSimboloAvancar";
             this.lblSimboloAvancar.Size = new System.Drawing.Size(45, 13);
             this.lblSimboloAvancar.TabIndex = 35;
@@ -444,14 +472,14 @@
             // 
             // txbSimboloAvancar
             // 
-            this.txbSimboloAvancar.Location = new System.Drawing.Point(337, 301);
+            this.txbSimboloAvancar.Location = new System.Drawing.Point(354, 250);
             this.txbSimboloAvancar.Name = "txbSimboloAvancar";
             this.txbSimboloAvancar.Size = new System.Drawing.Size(139, 20);
             this.txbSimboloAvancar.TabIndex = 34;
             // 
             // btnAvancarPirata
             // 
-            this.btnAvancarPirata.Location = new System.Drawing.Point(337, 327);
+            this.btnAvancarPirata.Location = new System.Drawing.Point(354, 276);
             this.btnAvancarPirata.Name = "btnAvancarPirata";
             this.btnAvancarPirata.Size = new System.Drawing.Size(139, 23);
             this.btnAvancarPirata.TabIndex = 33;
@@ -462,7 +490,7 @@
             // lblPosicaoAvancar
             // 
             this.lblPosicaoAvancar.AutoSize = true;
-            this.lblPosicaoAvancar.Location = new System.Drawing.Point(284, 282);
+            this.lblPosicaoAvancar.Location = new System.Drawing.Point(301, 231);
             this.lblPosicaoAvancar.Name = "lblPosicaoAvancar";
             this.lblPosicaoAvancar.Size = new System.Drawing.Size(47, 13);
             this.lblPosicaoAvancar.TabIndex = 37;
@@ -470,7 +498,7 @@
             // 
             // txbPosicaoAvancar
             // 
-            this.txbPosicaoAvancar.Location = new System.Drawing.Point(337, 275);
+            this.txbPosicaoAvancar.Location = new System.Drawing.Point(354, 224);
             this.txbPosicaoAvancar.Name = "txbPosicaoAvancar";
             this.txbPosicaoAvancar.Size = new System.Drawing.Size(139, 20);
             this.txbPosicaoAvancar.TabIndex = 36;
@@ -485,33 +513,207 @@
             this.PainelLoob.Controls.Add(this.lblSenhaCriada);
             this.PainelLoob.Controls.Add(this.lblListaJogadoresPartida);
             this.PainelLoob.Controls.Add(this.btnIniciarPartida);
-            this.PainelLoob.Location = new System.Drawing.Point(12, 10);
+            this.PainelLoob.Location = new System.Drawing.Point(2, 0);
             this.PainelLoob.Name = "PainelLoob";
-            this.PainelLoob.Size = new System.Drawing.Size(930, 606);
+            this.PainelLoob.Size = new System.Drawing.Size(1096, 602);
             this.PainelLoob.TabIndex = 38;
             this.PainelLoob.Visible = false;
+            this.PainelLoob.Paint += new System.Windows.Forms.PaintEventHandler(this.PainelLoob_Paint);
             // 
             // painelJogo
             // 
-            this.painelJogo.Controls.Add(this.Jogadores);
-            this.painelJogo.Controls.Add(this.btVoltar);
-            this.painelJogo.Controls.Add(this.btPular);
-            this.painelJogo.Controls.Add(this.btJogar);
-            this.painelJogo.Controls.Add(this.piratas);
-            this.painelJogo.Controls.Add(this.Cartas);
+            this.painelJogo.Controls.Add(this.panel6);
             this.painelJogo.Controls.Add(this.listView1);
+            this.painelJogo.Controls.Add(this.label5);
+            this.painelJogo.Controls.Add(this.panel5);
+            this.painelJogo.Controls.Add(this.label3);
+            this.painelJogo.Controls.Add(this.groupBox1);
+            this.painelJogo.Controls.Add(this.Jogadores);
             this.painelJogo.Controls.Add(this.Tabuleiro);
             this.painelJogo.Controls.Add(this.Controles_Cris);
-            this.painelJogo.Controls.Add(this.btnExibirCartasEmMao);
-            this.painelJogo.Controls.Add(this.lblCartasNaMao);
-            this.painelJogo.Controls.Add(this.lblTabuleiro);
-            this.painelJogo.Controls.Add(this.btnJogadorVez);
-            this.painelJogo.Controls.Add(this.lblJogadorVez);
-            this.painelJogo.Location = new System.Drawing.Point(26, 31);
+            this.painelJogo.Location = new System.Drawing.Point(22, 18);
             this.painelJogo.Name = "painelJogo";
-            this.painelJogo.Size = new System.Drawing.Size(901, 557);
+            this.painelJogo.Size = new System.Drawing.Size(1071, 590);
             this.painelJogo.TabIndex = 19;
             this.painelJogo.Visible = false;
+            this.painelJogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // panel6
+            // 
+            this.panel6.Location = new System.Drawing.Point(27, 33);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(146, 169);
+            this.panel6.TabIndex = 51;
+            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
+            // 
+            // listView1
+            // 
+            this.listView1.HideSelection = false;
+            this.listView1.Location = new System.Drawing.Point(27, 234);
+            this.listView1.Name = "listView1";
+            this.listView1.Size = new System.Drawing.Size(140, 313);
+            this.listView1.TabIndex = 40;
+            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.label5.Location = new System.Drawing.Point(31, 213);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(106, 13);
+            this.label5.TabIndex = 50;
+            this.label5.Text = "Histórico de Jogadas";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.panel5.Controls.Add(exibeVez);
+            this.panel5.Controls.Add(this.label4);
+            this.panel5.Location = new System.Drawing.Point(367, 359);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(172, 188);
+            this.panel5.TabIndex = 49;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.label4.Location = new System.Drawing.Point(17, 10);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(81, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Jogador da Vez";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.label3.Location = new System.Drawing.Point(197, 359);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(106, 13);
+            this.label3.TabIndex = 48;
+            this.label3.Text = "Jogadores na partida";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.btPular);
+            this.groupBox1.Controls.Add(this.btVoltar);
+            this.groupBox1.Controls.Add(this.Cartas);
+            this.groupBox1.Controls.Add(this.piratas);
+            this.groupBox1.Controls.Add(this.btJogar);
+            this.groupBox1.Controls.Add(this.btnExibirCartasEmMao);
+            this.groupBox1.Location = new System.Drawing.Point(545, 359);
+            this.groupBox1.MinimumSize = new System.Drawing.Size(502, 188);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(502, 188);
+            this.groupBox1.TabIndex = 47;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Controles";
+            // 
+            // btPular
+            // 
+            this.btPular.Location = new System.Drawing.Point(378, 140);
+            this.btPular.Name = "btPular";
+            this.btPular.Size = new System.Drawing.Size(85, 36);
+            this.btPular.TabIndex = 44;
+            this.btPular.Text = "Pular";
+            this.btPular.UseVisualStyleBackColor = true;
+            this.btPular.Click += new System.EventHandler(this.btPular_Click);
+            // 
+            // btVoltar
+            // 
+            this.btVoltar.Location = new System.Drawing.Point(378, 98);
+            this.btVoltar.Name = "btVoltar";
+            this.btVoltar.Size = new System.Drawing.Size(85, 36);
+            this.btVoltar.TabIndex = 45;
+            this.btVoltar.Text = "Voltar";
+            this.btVoltar.UseVisualStyleBackColor = true;
+            this.btVoltar.Click += new System.EventHandler(this.btVoltar_Click);
+            // 
+            // Cartas
+            // 
+            this.Cartas.FormattingEnabled = true;
+            this.Cartas.Location = new System.Drawing.Point(33, 52);
+            this.Cartas.Name = "Cartas";
+            this.Cartas.Size = new System.Drawing.Size(139, 124);
+            this.Cartas.TabIndex = 41;
+            this.Cartas.SelectedIndexChanged += new System.EventHandler(this.Cartas_SelectedIndexChanged);
+            // 
+            // piratas
+            // 
+            this.piratas.FormattingEnabled = true;
+            this.piratas.Location = new System.Drawing.Point(202, 52);
+            this.piratas.Name = "piratas";
+            this.piratas.Size = new System.Drawing.Size(148, 124);
+            this.piratas.TabIndex = 42;
+            this.piratas.SelectedIndexChanged += new System.EventHandler(this.piratas_SelectedIndexChanged);
+            // 
+            // btJogar
+            // 
+            this.btJogar.Location = new System.Drawing.Point(378, 52);
+            this.btJogar.Name = "btJogar";
+            this.btJogar.Size = new System.Drawing.Size(85, 40);
+            this.btJogar.TabIndex = 43;
+            this.btJogar.Text = "Jogar";
+            this.btJogar.UseVisualStyleBackColor = true;
+            this.btJogar.Click += new System.EventHandler(this.btJogar_Click);
+            // 
+            // Jogadores
+            // 
+            this.Jogadores.HideSelection = false;
+            this.Jogadores.Location = new System.Drawing.Point(197, 382);
+            this.Jogadores.Name = "Jogadores";
+            this.Jogadores.Size = new System.Drawing.Size(139, 163);
+            this.Jogadores.TabIndex = 46;
+            this.Jogadores.UseCompatibleStateImageBehavior = false;
+            this.Jogadores.SelectedIndexChanged += new System.EventHandler(this.Jogadores_SelectedIndexChanged);
+            // 
+            // Tabuleiro
+            // 
+            this.Tabuleiro.Controls.Add(this.btnExibirTabuleiro);
+            this.Tabuleiro.Controls.Add(this.lblJogadorVez);
+            this.Tabuleiro.Controls.Add(this.lblTabuleiro);
+            this.Tabuleiro.Location = new System.Drawing.Point(197, 33);
+            this.Tabuleiro.Name = "Tabuleiro";
+            this.Tabuleiro.Size = new System.Drawing.Size(850, 307);
+            this.Tabuleiro.TabIndex = 39;
+            this.Tabuleiro.TabStop = true;
+            // 
+            // Controles_Cris
+            // 
+            this.Controles_Cris.Controls.Add(this.label2);
+            this.Controles_Cris.Controls.Add(this.lblHistorico);
+            this.Controles_Cris.Controls.Add(this.btnPularVez);
+            this.Controles_Cris.Controls.Add(this.lblInfoAcoes);
+            this.Controles_Cris.Controls.Add(this.txbPosicaoRetornar);
+            this.Controles_Cris.Controls.Add(this.lblPosicaoAvancar);
+            this.Controles_Cris.Controls.Add(this.lblCartasNaMao);
+            this.Controles_Cris.Controls.Add(this.lblPosicaoRetornar);
+            this.Controles_Cris.Controls.Add(this.btnMoverPirataRetornar);
+            this.Controles_Cris.Controls.Add(this.btnJogadorVez);
+            this.Controles_Cris.Controls.Add(this.txbPosicaoAvancar);
+            this.Controles_Cris.Controls.Add(this.btnExibirHistorico);
+            this.Controles_Cris.Controls.Add(this.btnAvancarPirata);
+            this.Controles_Cris.Controls.Add(this.txbSimboloAvancar);
+            this.Controles_Cris.Controls.Add(this.lblSimboloAvancar);
+            this.Controles_Cris.Location = new System.Drawing.Point(45, 563);
+            this.Controles_Cris.Name = "Controles_Cris";
+            this.Controles_Cris.Size = new System.Drawing.Size(696, 421);
+            this.Controles_Cris.TabIndex = 38;
+            this.Controles_Cris.Paint += new System.Windows.Forms.PaintEventHandler(this.Controles_Cris_Paint);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(447, 13);
+            this.label2.TabIndex = 38;
+            this.label2.Text = "Aqui esta os Controles que o Cris fez, depois precisa passar o codigo para os nov" +
+    "os conrtoles";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
@@ -560,14 +762,6 @@
             this.panel4.Size = new System.Drawing.Size(277, 308);
             this.panel4.TabIndex = 42;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Location = new System.Drawing.Point(20, 55);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(237, 225);
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -576,116 +770,25 @@
             this.label1.Size = new System.Drawing.Size(199, 13);
             this.label1.TabIndex = 1;
             this.label1.Text = "Pode colocar uma imagem qualquer aqui";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // Controles_Cris
+            // pictureBox1
             // 
-            this.Controles_Cris.Controls.Add(this.label2);
-            this.Controles_Cris.Controls.Add(this.btnPularVez);
-            this.Controles_Cris.Controls.Add(this.lblInfoAcoes);
-            this.Controles_Cris.Controls.Add(this.txbPosicaoRetornar);
-            this.Controles_Cris.Controls.Add(this.lblPosicaoAvancar);
-            this.Controles_Cris.Controls.Add(this.lblPosicaoRetornar);
-            this.Controles_Cris.Controls.Add(this.btnMoverPirataRetornar);
-            this.Controles_Cris.Controls.Add(this.txbPosicaoAvancar);
-            this.Controles_Cris.Controls.Add(this.btnExibirHistorico);
-            this.Controles_Cris.Controls.Add(this.btnAvancarPirata);
-            this.Controles_Cris.Controls.Add(this.txbSimboloAvancar);
-            this.Controles_Cris.Controls.Add(this.lblSimboloAvancar);
-            this.Controles_Cris.Location = new System.Drawing.Point(99, 518);
-            this.Controles_Cris.Name = "Controles_Cris";
-            this.Controles_Cris.Size = new System.Drawing.Size(557, 389);
-            this.Controles_Cris.TabIndex = 38;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(36, 18);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(447, 13);
-            this.label2.TabIndex = 38;
-            this.label2.Text = "Aqui esta os Controles que o Cris fez, depois precisa passar o codigo para os nov" +
-    "os conrtoles";
-            // 
-            // Tabuleiro
-            // 
-            this.Tabuleiro.Controls.Add(this.btnExibirTabuleiro);
-            this.Tabuleiro.Location = new System.Drawing.Point(182, 61);
-            this.Tabuleiro.Name = "Tabuleiro";
-            this.Tabuleiro.Size = new System.Drawing.Size(712, 274);
-            this.Tabuleiro.TabIndex = 39;
-            this.Tabuleiro.TabStop = true;
-            // 
-            // listView1
-            // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(27, 72);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(140, 223);
-            this.listView1.TabIndex = 40;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // Cartas
-            // 
-            this.Cartas.FormattingEnabled = true;
-            this.Cartas.Location = new System.Drawing.Point(228, 371);
-            this.Cartas.Name = "Cartas";
-            this.Cartas.Size = new System.Drawing.Size(139, 124);
-            this.Cartas.TabIndex = 41;
-            // 
-            // piratas
-            // 
-            this.piratas.FormattingEnabled = true;
-            this.piratas.Location = new System.Drawing.Point(436, 371);
-            this.piratas.Name = "piratas";
-            this.piratas.Size = new System.Drawing.Size(148, 124);
-            this.piratas.TabIndex = 42;
-            // 
-            // btJogar
-            // 
-            this.btJogar.Location = new System.Drawing.Point(642, 371);
-            this.btJogar.Name = "btJogar";
-            this.btJogar.Size = new System.Drawing.Size(85, 40);
-            this.btJogar.TabIndex = 43;
-            this.btJogar.Text = "Jogar";
-            this.btJogar.UseVisualStyleBackColor = true;
-            // 
-            // btPular
-            // 
-            this.btPular.Location = new System.Drawing.Point(642, 459);
-            this.btPular.Name = "btPular";
-            this.btPular.Size = new System.Drawing.Size(85, 36);
-            this.btPular.TabIndex = 44;
-            this.btPular.Text = "Pular";
-            this.btPular.UseVisualStyleBackColor = true;
-            // 
-            // btVoltar
-            // 
-            this.btVoltar.Location = new System.Drawing.Point(642, 417);
-            this.btVoltar.Name = "btVoltar";
-            this.btVoltar.Size = new System.Drawing.Size(85, 36);
-            this.btVoltar.TabIndex = 45;
-            this.btVoltar.Text = "Voltar";
-            this.btVoltar.UseVisualStyleBackColor = true;
-            // 
-            // Jogadores
-            // 
-            this.Jogadores.HideSelection = false;
-            this.Jogadores.Location = new System.Drawing.Point(27, 322);
-            this.Jogadores.Name = "Jogadores";
-            this.Jogadores.Size = new System.Drawing.Size(139, 163);
-            this.Jogadores.TabIndex = 46;
-            this.Jogadores.UseCompatibleStateImageBehavior = false;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 55);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(237, 225);
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // frmInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 677);
+            this.ClientSize = new System.Drawing.Size(1089, 598);
             this.Controls.Add(this.PainelLoob);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.lblHistorico);
             this.Controls.Add(this.panel1);
             this.MinimumSize = new System.Drawing.Size(687, 579);
             this.Name = "frmInicial";
@@ -694,6 +797,13 @@
             this.PainelLoob.PerformLayout();
             this.painelJogo.ResumeLayout(false);
             this.painelJogo.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.Tabuleiro.ResumeLayout(false);
+            this.Tabuleiro.PerformLayout();
+            this.Controles_Cris.ResumeLayout(false);
+            this.Controles_Cris.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -702,11 +812,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.Controles_Cris.ResumeLayout(false);
-            this.Controles_Cris.PerformLayout();
-            this.Tabuleiro.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -767,6 +873,12 @@
         private System.Windows.Forms.Panel Tabuleiro;
         private System.Windows.Forms.Panel Controles_Cris;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label5;
     }
 }
 
