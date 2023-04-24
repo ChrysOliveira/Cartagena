@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.Label exibeVez;
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label lblMostrarVez;
             this.btnConsultarVez = new System.Windows.Forms.Button();
             this.lsbListaPartidas = new System.Windows.Forms.ListBox();
             this.txbNomeNovaPartida = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.btnExibirTabuleiro = new System.Windows.Forms.Button();
             this.lblTabuleiro = new System.Windows.Forms.Label();
             this.btnJogadorVez = new System.Windows.Forms.Button();
-            this.lblJogadorVez = new System.Windows.Forms.Label();
             this.btnPularVez = new System.Windows.Forms.Button();
             this.lblInfoAcoes = new System.Windows.Forms.Label();
             this.btnMoverPirataRetornar = new System.Windows.Forms.Button();
@@ -72,6 +72,7 @@
             this.listView1 = new System.Windows.Forms.ListView();
             this.label5 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.lblJogadorVez = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -90,7 +91,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            exibeVez = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            lblMostrarVez = new System.Windows.Forms.Label();
             this.PainelLoob.SuspendLayout();
             this.painelJogo.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -104,16 +106,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // exibeVez
+            // lblMostrarVez
             // 
-            exibeVez.AutoSize = true;
-            exibeVez.Location = new System.Drawing.Point(17, 33);
-            exibeVez.MaximumSize = new System.Drawing.Size(139, 143);
-            exibeVez.Name = "exibeVez";
-            exibeVez.Size = new System.Drawing.Size(35, 13);
-            exibeVez.TabIndex = 1;
-            exibeVez.Text = "label5";
-            exibeVez.Click += new System.EventHandler(this.exibeVez_Click);
+            lblMostrarVez.AutoSize = true;
+            lblMostrarVez.Location = new System.Drawing.Point(35, 50);
+            lblMostrarVez.MaximumSize = new System.Drawing.Size(139, 143);
+            lblMostrarVez.Name = "lblMostrarVez";
+            lblMostrarVez.Size = new System.Drawing.Size(91, 13);
+            lblMostrarVez.TabIndex = 24;
+            lblMostrarVez.Text = "aqui ta o tabuleiro";
+            lblMostrarVez.Click += new System.EventHandler(this.exibeVez_Click);
             // 
             // btnConsultarVez
             // 
@@ -330,7 +332,7 @@
             // 
             // btnIniciarPartida
             // 
-            this.btnIniciarPartida.Location = new System.Drawing.Point(413, 92);
+            this.btnIniciarPartida.Location = new System.Drawing.Point(424, 84);
             this.btnIniciarPartida.Name = "btnIniciarPartida";
             this.btnIniciarPartida.Size = new System.Drawing.Size(100, 23);
             this.btnIniciarPartida.TabIndex = 18;
@@ -349,7 +351,7 @@
             // 
             // btnExibirCartasEmMao
             // 
-            this.btnExibirCartasEmMao.Location = new System.Drawing.Point(33, 23);
+            this.btnExibirCartasEmMao.Location = new System.Drawing.Point(64, 124);
             this.btnExibirCartasEmMao.Name = "btnExibirCartasEmMao";
             this.btnExibirCartasEmMao.Size = new System.Drawing.Size(139, 23);
             this.btnExibirCartasEmMao.TabIndex = 20;
@@ -385,15 +387,6 @@
             this.btnJogadorVez.Text = "Vez de quem?";
             this.btnJogadorVez.UseVisualStyleBackColor = true;
             this.btnJogadorVez.Click += new System.EventHandler(this.btnJogadorVez_Click);
-            // 
-            // lblJogadorVez
-            // 
-            this.lblJogadorVez.AutoSize = true;
-            this.lblJogadorVez.Location = new System.Drawing.Point(35, 50);
-            this.lblJogadorVez.Name = "lblJogadorVez";
-            this.lblJogadorVez.Size = new System.Drawing.Size(91, 13);
-            this.lblJogadorVez.TabIndex = 24;
-            this.lblJogadorVez.Text = "aqui ta o tabuleiro";
             // 
             // btnPularVez
             // 
@@ -513,9 +506,9 @@
             this.PainelLoob.Controls.Add(this.lblSenhaCriada);
             this.PainelLoob.Controls.Add(this.lblListaJogadoresPartida);
             this.PainelLoob.Controls.Add(this.btnIniciarPartida);
-            this.PainelLoob.Location = new System.Drawing.Point(2, 0);
+            this.PainelLoob.Location = new System.Drawing.Point(169, 12);
             this.PainelLoob.Name = "PainelLoob";
-            this.PainelLoob.Size = new System.Drawing.Size(1096, 602);
+            this.PainelLoob.Size = new System.Drawing.Size(1404, 907);
             this.PainelLoob.TabIndex = 38;
             this.PainelLoob.Visible = false;
             this.PainelLoob.Paint += new System.Windows.Forms.PaintEventHandler(this.PainelLoob_Paint);
@@ -531,15 +524,16 @@
             this.painelJogo.Controls.Add(this.Jogadores);
             this.painelJogo.Controls.Add(this.Tabuleiro);
             this.painelJogo.Controls.Add(this.Controles_Cris);
-            this.painelJogo.Location = new System.Drawing.Point(22, 18);
+            this.painelJogo.Location = new System.Drawing.Point(388, 154);
             this.painelJogo.Name = "painelJogo";
-            this.painelJogo.Size = new System.Drawing.Size(1071, 590);
+            this.painelJogo.Size = new System.Drawing.Size(1048, 848);
             this.painelJogo.TabIndex = 19;
             this.painelJogo.Visible = false;
             this.painelJogo.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel6
             // 
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel6.Location = new System.Drawing.Point(27, 33);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(146, 169);
@@ -569,12 +563,22 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.panel5.Controls.Add(exibeVez);
+            this.panel5.Controls.Add(this.lblJogadorVez);
             this.panel5.Controls.Add(this.label4);
             this.panel5.Location = new System.Drawing.Point(367, 359);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(172, 188);
             this.panel5.TabIndex = 49;
+            // 
+            // lblJogadorVez
+            // 
+            this.lblJogadorVez.AutoSize = true;
+            this.lblJogadorVez.Location = new System.Drawing.Point(17, 33);
+            this.lblJogadorVez.MaximumSize = new System.Drawing.Size(150, 142);
+            this.lblJogadorVez.Name = "lblJogadorVez";
+            this.lblJogadorVez.Size = new System.Drawing.Size(35, 13);
+            this.lblJogadorVez.TabIndex = 1;
+            this.lblJogadorVez.Text = "label6";
             // 
             // label4
             // 
@@ -585,6 +589,7 @@
             this.label4.Size = new System.Drawing.Size(81, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "Jogador da Vez";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
@@ -603,7 +608,6 @@
             this.groupBox1.Controls.Add(this.Cartas);
             this.groupBox1.Controls.Add(this.piratas);
             this.groupBox1.Controls.Add(this.btJogar);
-            this.groupBox1.Controls.Add(this.btnExibirCartasEmMao);
             this.groupBox1.Location = new System.Drawing.Point(545, 359);
             this.groupBox1.MinimumSize = new System.Drawing.Size(502, 188);
             this.groupBox1.Name = "groupBox1";
@@ -614,7 +618,7 @@
             // 
             // btPular
             // 
-            this.btPular.Location = new System.Drawing.Point(378, 140);
+            this.btPular.Location = new System.Drawing.Point(366, 121);
             this.btPular.Name = "btPular";
             this.btPular.Size = new System.Drawing.Size(85, 36);
             this.btPular.TabIndex = 44;
@@ -624,7 +628,7 @@
             // 
             // btVoltar
             // 
-            this.btVoltar.Location = new System.Drawing.Point(378, 98);
+            this.btVoltar.Location = new System.Drawing.Point(366, 79);
             this.btVoltar.Name = "btVoltar";
             this.btVoltar.Size = new System.Drawing.Size(85, 36);
             this.btVoltar.TabIndex = 45;
@@ -635,7 +639,7 @@
             // Cartas
             // 
             this.Cartas.FormattingEnabled = true;
-            this.Cartas.Location = new System.Drawing.Point(33, 52);
+            this.Cartas.Location = new System.Drawing.Point(20, 33);
             this.Cartas.Name = "Cartas";
             this.Cartas.Size = new System.Drawing.Size(139, 124);
             this.Cartas.TabIndex = 41;
@@ -644,7 +648,7 @@
             // piratas
             // 
             this.piratas.FormattingEnabled = true;
-            this.piratas.Location = new System.Drawing.Point(202, 52);
+            this.piratas.Location = new System.Drawing.Point(194, 33);
             this.piratas.Name = "piratas";
             this.piratas.Size = new System.Drawing.Size(148, 124);
             this.piratas.TabIndex = 42;
@@ -652,7 +656,7 @@
             // 
             // btJogar
             // 
-            this.btJogar.Location = new System.Drawing.Point(378, 52);
+            this.btJogar.Location = new System.Drawing.Point(366, 33);
             this.btJogar.Name = "btJogar";
             this.btJogar.Size = new System.Drawing.Size(85, 40);
             this.btJogar.TabIndex = 43;
@@ -673,7 +677,7 @@
             // Tabuleiro
             // 
             this.Tabuleiro.Controls.Add(this.btnExibirTabuleiro);
-            this.Tabuleiro.Controls.Add(this.lblJogadorVez);
+            this.Tabuleiro.Controls.Add(lblMostrarVez);
             this.Tabuleiro.Controls.Add(this.lblTabuleiro);
             this.Tabuleiro.Location = new System.Drawing.Point(197, 33);
             this.Tabuleiro.Name = "Tabuleiro";
@@ -688,6 +692,7 @@
             this.Controles_Cris.Controls.Add(this.btnPularVez);
             this.Controles_Cris.Controls.Add(this.lblInfoAcoes);
             this.Controles_Cris.Controls.Add(this.txbPosicaoRetornar);
+            this.Controles_Cris.Controls.Add(this.btnExibirCartasEmMao);
             this.Controles_Cris.Controls.Add(this.lblPosicaoAvancar);
             this.Controles_Cris.Controls.Add(this.lblCartasNaMao);
             this.Controles_Cris.Controls.Add(this.lblPosicaoRetornar);
@@ -780,11 +785,16 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // frmInicial
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1089, 598);
+            this.ClientSize = new System.Drawing.Size(1428, 931);
             this.Controls.Add(this.PainelLoob);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
@@ -842,7 +852,6 @@
         private System.Windows.Forms.Button btnExibirTabuleiro;
         private System.Windows.Forms.Label lblTabuleiro;
         private System.Windows.Forms.Button btnJogadorVez;
-        private System.Windows.Forms.Label lblJogadorVez;
         private System.Windows.Forms.Button btnPularVez;
         private System.Windows.Forms.Label lblInfoAcoes;
         private System.Windows.Forms.Button btnMoverPirataRetornar;
@@ -879,6 +888,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Label lblJogadorVez;
     }
 }
 

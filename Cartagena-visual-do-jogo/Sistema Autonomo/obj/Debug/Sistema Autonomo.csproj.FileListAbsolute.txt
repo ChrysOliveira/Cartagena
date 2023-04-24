@@ -54,3 +54,4 @@ C:\Users\cit\source\repos\Cartagena-visual-do-jogo\Sistema Autonomo\obj\Debug\Si
 C:\Users\cit\source\repos\Cartagena-visual-do-jogo\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CopyComplete
 C:\Users\cit\source\repos\Cartagena-visual-do-jogo\Sistema Autonomo\obj\Debug\Sistema Autonomo.exe
 C:\Users\cit\source\repos\Cartagena-visual-do-jogo\Sistema Autonomo\obj\Debug\Sistema Autonomo.pdb
+C:\Users\cit\source\repos\Cartagena-visual-do-jogo\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Partida.resources
