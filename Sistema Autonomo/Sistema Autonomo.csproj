@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Sistema_Autonomo.Program</StartupObject>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CartagenaServer">
       <HintPath>..\CartagenaServer.dll</HintPath>
@@ -49,16 +52,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmInicial.cs">
+    <Compile Include="Formularios\FrmInGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInicial.Designer.cs">
-      <DependentUpon>frmInicial.cs</DependentUpon>
+    <Compile Include="Formularios\FrmInGame.Designer.cs">
+      <DependentUpon>FrmInGame.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\FrmInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmInicial.Designer.cs">
+      <DependentUpon>FrmInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmLobby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmLobby.Designer.cs">
+      <DependentUpon>FrmLobby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmTemplate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmTemplate.Designer.cs">
+      <DependentUpon>FrmTemplate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Jogador.cs" />
+    <Compile Include="Partida.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmInicial.resx">
-      <DependentUpon>frmInicial.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmInGame.resx">
+      <DependentUpon>FrmInGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmInicial.resx">
+      <DependentUpon>FrmInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmLobby.resx">
+      <DependentUpon>FrmLobby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmTemplate.resx">
+      <DependentUpon>FrmTemplate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

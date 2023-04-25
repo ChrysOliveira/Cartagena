@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sistema_Autonomo.Formularios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +17,7 @@ namespace Sistema_Autonomo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmInicial());
+            Application.Run(new FrmInicial());
         }
     }
 }
