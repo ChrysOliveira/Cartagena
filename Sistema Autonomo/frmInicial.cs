@@ -16,7 +16,12 @@ namespace Sistema_Autonomo
         List<string> listaPartidas;
         List<string> retornoTabuleiro;
 
+        List<int> pos1 = new List<int>();
+
+
+
         int idJogador, idJogadorRodada;
+        int margemY = 310, margemX = 275;
 
         string senhaJogador, corPartida;
 
@@ -40,6 +45,7 @@ namespace Sistema_Autonomo
 
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
+
             idJogadorRodada = int.Parse(Jogo.IniciarPartida(idJogador, senhaJogador));
 
             string retorno = Jogo.ConsultarMao(idJogador, senhaJogador);
@@ -104,19 +110,48 @@ namespace Sistema_Autonomo
 
         }
 
+        private PictureBox CriaPainelPirata()
+        {/*
+            Panel panelPirata = new Panel();
+            panelPirata.BackgroundImageLayout = ImageLayout.Stretch;
+            panelPirata.Size = new Size(100, 100);
+            panelPirata.Visible = true;
+            panelPirata.BringToFront(); */
+            PictureBox pictureBoxPirata = new PictureBox();
+            pictureBoxPirata.Size = new Size(100, 100);
+            pictureBoxPirata.BackgroundImage = Properties.Resources.imagemparateste;
+            pictureBoxPirata.BringToFront();
+            return pictureBoxPirata;
+        }
+        int cont = 1;
+        private object painelSobreposto;
+
         private void btnExibirHistorico_Click(object sender, EventArgs e)
         {
             List<string> retorno = Jogo.ExibirHistorico(int.Parse(dadosPartidaSelecionada[0]))
                 .Replace("\r", "").Split('\n').ToList();
-
             lblHistorico.Text = "";
 
-            foreach (string item in retorno)
-            {
-                lblHistorico.Text += $"\n {item}";
-            }
+            String item = retorno[cont - 1];
 
-        }
+                   lblHistorico.Text += $"\n {item}";
+                    
+                    string[] valores = item.Split(',');
+
+                    int pos = int.Parse(valores[4]);
+
+                    PictureBox criado = CriaPainelPirata();
+             List<Panel> panelList = new List<Panel>();
+
+            panelList[0].Left = margemX + (pos1[pos * 2] * 50);
+                    panelList[0].Top = margemY + (pos1[(pos * 2) + 1] * 50);
+
+            this.Controls.Add(panelList[0]);
+
+            
+            cont++;
+   } 
+                
 
         private void btnMoverPirataRetornar_Click(object sender, EventArgs e)
         {
@@ -173,17 +208,20 @@ namespace Sistema_Autonomo
         {
             Panel panel = new Panel();
             panel.BackgroundImageLayout = ImageLayout.Stretch;
-            panel.Width = 100;
+            panel.Width = 50;
+            panel.Height = 50;
+          panel.SendToBack();
             return panel;
         }
 
+        
+
         private void CriaMapa()
         {
-            int margemY = 310, margemX = 275;
+            List<Panel> panelList = new List<Panel>();
 
             int y=0, x=0;
-
-            List<Panel> panelList = new List<Panel>();
+                       
 
             foreach (string item in retornoTabuleiro)
             {
@@ -196,34 +234,35 @@ namespace Sistema_Autonomo
                 }
                 else if (valores[1] == "T")
                 {
-                    criado.BackgroundImage = Properties.Resources.imagemparateste;
+                    criado.BackgroundImage = Properties.Resources.Chapeu;
                     panelList.Add(criado);
 
                 }
                 else if (valores[1] == "E")
                 {
-                    criado.BackgroundImage = Properties.Resources.imagemparateste;
+                    criado.BackgroundImage = Properties.Resources.Caveira;
                     panelList.Add(criado);
                 }
                 else if (valores[1] == "F")
                 {
-                    criado.BackgroundImage = Properties.Resources.imagemparateste;
+                    criado.BackgroundImage = Properties.Resources.Adaga;
                     panelList.Add(criado);
                 }
                 else if (valores[1] == "G")
                 {
-                    criado.BackgroundImage = Properties.Resources.imagemparateste;
+                    criado.BackgroundImage = Properties.Resources.Garrafa;
                     panelList.Add(criado);
                 }
                 else if (valores[1] == "P")
                 {
-                    criado.BackgroundImage = Properties.Resources.imagemparateste;
+                    criado.BackgroundImage = Properties.Resources.Pistola;
                     panelList.Add(criado);
                 }
                 else if (valores[1] == "C")
                 {
-                    criado.BackgroundImage = Properties.Resources.imagemparateste;
+                    criado.BackgroundImage = Properties.Resources.Chave;
                     panelList.Add(criado);
+                   
                 }
                 else if (valores[1] == " ")
                 {
@@ -231,6 +270,7 @@ namespace Sistema_Autonomo
                     panelList.Add(criado);
                 }
             }
+
 
             int direcao = 0;
             int contaDescida = 0;
@@ -241,6 +281,9 @@ namespace Sistema_Autonomo
                 {
                     panelList[i].Top = margemY + (y * panelList[i].Width);
                     panelList[i].Left = margemX + (x * panelList[i].Width);
+
+                    pos1.Add(x);
+                    pos1.Add(y);
 
                     if ((margemX + ((x + 1) * panelList[i].Width) < this.Width - margemX))
                     {
@@ -258,6 +301,9 @@ namespace Sistema_Autonomo
                     y++;
                     panelList[i].Top = margemY + (y * panelList[i].Width);
 
+                    pos1.Add(x);
+                    pos1.Add(y);
+
                     contaDescida++;
 
                     if ((margemX + (x * panelList[i].Width) == margemX) && contaDescida == 2)
@@ -272,6 +318,9 @@ namespace Sistema_Autonomo
                 else if ((margemX + (x * panelList[i].Width) >= margemX) && direcao == 1)
                 {
                     panelList[i].Top = margemY + (y * panelList[i].Width);
+
+                    pos1.Add(x);
+                    pos1.Add(y);
 
                     if ((margemX + ((x - 1) * panelList[i].Width) > margemX))
                     {

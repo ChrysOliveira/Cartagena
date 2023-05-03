@@ -95,5 +95,23 @@
   <ItemGroup>
     <None Include="imagens\imagemparateste.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\Adaga.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\Caveira.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\chapeu.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\chave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\pistola.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\garrafa.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
