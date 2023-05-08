@@ -49,12 +49,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Mapa.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Mapa.Designer.cs">
-      <DependentUpon>Mapa.cs</DependentUpon>
-    </Compile>
     <Compile Include="frmInicial.cs">
       <SubType>Form</SubType>
     </Compile>

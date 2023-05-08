@@ -18,8 +18,6 @@ namespace Sistema_Autonomo
 
         List<int> pos1 = new List<int>();
 
-
-
         int idJogador, idJogadorRodada;
         int margemY = 310, margemX = 275;
 
@@ -42,7 +40,6 @@ namespace Sistema_Autonomo
             listaPartidas.ForEach(item => lsbListaPartidas.Items.Add(item));
 
         }
-
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
 
@@ -52,7 +49,6 @@ namespace Sistema_Autonomo
 
 
         }
-
         private void btnExibirCartasEmMao_Click(object sender, EventArgs e)
         {
             List<string> retorno = Jogo.ConsultarMao(idJogador, senhaJogador)
@@ -66,7 +62,6 @@ namespace Sistema_Autonomo
             }
 
         }
-
         private void btnExibirTabuleiro_Click(object sender, EventArgs e)
         {
 
@@ -75,7 +70,6 @@ namespace Sistema_Autonomo
       
             CriaMapa();
         }
-
         private void btnJogadorVez_Click(object sender, EventArgs e)
         {
             List<string> retorno = Jogo.VerificarVez(int.Parse(dadosPartidaSelecionada[0]))
@@ -100,7 +94,6 @@ namespace Sistema_Autonomo
                 lblJogadorVez.Text += $"\nNa posicao: {situacaoTabuleiro[0]} o jogador {situacaoTabuleiro[1]} possui {situacaoTabuleiro[2]} piratas";
             }
         }
-
         private void btnPularVez_Click(object sender, EventArgs e)
         {
             string retorno = Jogo.Jogar(idJogador, senhaJogador);
@@ -109,7 +102,6 @@ namespace Sistema_Autonomo
         {
 
         }
-
         private PictureBox CriaPainelPirata()
         {/*
             Panel panelPirata = new Panel();
@@ -125,7 +117,6 @@ namespace Sistema_Autonomo
         }
         int cont = 1;
         private object painelSobreposto;
-
         private void btnExibirHistorico_Click(object sender, EventArgs e)
         {
             List<string> retorno = Jogo.ExibirHistorico(int.Parse(dadosPartidaSelecionada[0]))
@@ -151,14 +142,11 @@ namespace Sistema_Autonomo
             
             cont++;
    } 
-                
-
         private void btnMoverPirataRetornar_Click(object sender, EventArgs e)
         {
             string retonro = Jogo.Jogar(idJogador, senhaJogador, int.Parse(txbPosicaoRetornar.Text));
 
         }
-
         private void btnAvancarPirata_Click(object sender, EventArgs e)
         {
             Jogo.Jogar(idJogador, senhaJogador, int.Parse(txbPosicaoAvancar.Text), txbSimboloAvancar.Text);
@@ -170,7 +158,6 @@ namespace Sistema_Autonomo
 
             lblIdPartidaCriada.Text += $" {id}";
         }
-
         private void btnEntrarNaPartida_Click(object sender, EventArgs e)
         {
 
@@ -198,41 +185,31 @@ namespace Sistema_Autonomo
             listaJogadores.ForEach(jogador => lsvListaJogadoresPartida.Items.Add(jogador));
 
         }
-
-        private void frmInicial_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private Panel CriaPainel()
         {
             Panel panel = new Panel();
             panel.BackgroundImageLayout = ImageLayout.Stretch;
-            panel.Width = 50;
-            panel.Height = 50;
-          panel.SendToBack();
+            panel.Width = 75;
+            panel.Height = 75;
+            panel.SendToBack();
             return panel;
         }
-
-        
-
         private void CriaMapa()
         {
             List<Panel> panelList = new List<Panel>();
 
             int y=0, x=0;
                        
-
             foreach (string item in retornoTabuleiro)
             {
+                
                 string[] valores = item.Split(',');
                 Panel criado = CriaPainel();
+
                 if (valores[0] == "")
                 {
-                    criado.BackgroundImage = Properties.Resources.imagemparateste;
-                    panelList.Add(criado);
-                }
-                else if (valores[1] == "T")
+                    continue;
+                }else if (valores[1] == "T")
                 {
                     criado.BackgroundImage = Properties.Resources.Chapeu;
                     panelList.Add(criado);
@@ -264,8 +241,15 @@ namespace Sistema_Autonomo
                     panelList.Add(criado);
                    
                 }
-                else if (valores[1] == " ")
+                else if (valores[1] == " " && valores[0] == "37")
                 {
+                    //aqui seria o barco
+                    criado.BackgroundImage = Properties.Resources.imagemparateste;
+                    panelList.Add(criado);
+                }
+                else if (valores[1] == " " && valores[0] == "0")
+                {
+                    //aqui seria o comeco, antes de entrar no mapa
                     criado.BackgroundImage = Properties.Resources.imagemparateste;
                     panelList.Add(criado);
                 }
@@ -294,6 +278,7 @@ namespace Sistema_Autonomo
                         contaDescida = 0;
                         direcao = 2;
                     }
+
                 }
                 else if (contaDescida < 2 && direcao == 2)
                 {
@@ -309,6 +294,7 @@ namespace Sistema_Autonomo
                     if ((margemX + (x * panelList[i].Width) == margemX) && contaDescida == 2)
                     {
                         direcao = 0;
+                        x++;           
                     }
                     else if ((margemX + (x * panelList[i].Width) < this.Width - margemX) && contaDescida == 2)
                     {
