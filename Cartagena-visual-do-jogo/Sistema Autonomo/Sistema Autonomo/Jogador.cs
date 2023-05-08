@@ -40,19 +40,26 @@ namespace Sistema_Autonomo
         {
             return Piratas[posicaoDoPirata].Casa;
         }
+        private void ObterHistorico()
+        {
+            List<string> retorno = Jogo.ExibirHistorico(IdPartida)
+                .Replace("\r", "").Split('\n').ToList();
+        }
 
 
-        public void Av_Pirata(int IdPirata,string simbolo, Tabuleiro tab)
+        public void Av_Pirata(int IdPirata,string simbolo, Tabuleiro tab, int casa)
         {
             Jogo.Jogar(ID, Senha, piratas[IdPirata].Casa, simbolo);
-            
+            //metodo para obter o retorno da nova casa que o pirata andou
+            piratas[IdPirata].AvancaPirata(casa, simbolo);
 
         }
 
         public void Volt_Pirata(int IdPirata)
         {
             Jogo.Jogar(ID, Senha, piratas[IdPirata].Casa);
-
+            //metodo para obter o retorno da nova casa e simbolo que o pirata andou
+            piratas[IdPirata].AvancaPirata(casa, simbolo);
 
         }
 

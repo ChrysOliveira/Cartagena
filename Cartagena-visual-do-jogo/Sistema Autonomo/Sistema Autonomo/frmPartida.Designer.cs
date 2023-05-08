@@ -38,6 +38,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.MeusPiratas = new System.Windows.Forms.ListBox();
+            this.Cartas = new System.Windows.Forms.ListBox();
             this.btPular = new System.Windows.Forms.Button();
             this.btVoltar = new System.Windows.Forms.Button();
             this.btJogar = new System.Windows.Forms.Button();
@@ -47,8 +49,6 @@
             this.lblTabuleiro = new System.Windows.Forms.Label();
             this.btnIniciarPartida = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Cartas = new System.Windows.Forms.ListBox();
-            this.MeusPiratas = new System.Windows.Forms.ListBox();
             lblMostrarTabuleiro = new System.Windows.Forms.Label();
             this.panel5.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -68,7 +68,7 @@
             // panelQualquer
             // 
             this.panelQualquer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelQualquer.Location = new System.Drawing.Point(54, 47);
+            this.panelQualquer.Location = new System.Drawing.Point(47, 47);
             this.panelQualquer.Name = "panelQualquer";
             this.panelQualquer.Size = new System.Drawing.Size(146, 169);
             this.panelQualquer.TabIndex = 59;
@@ -147,6 +147,24 @@
             this.groupBox1.TabIndex = 55;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Controles";
+            // 
+            // MeusPiratas
+            // 
+            this.MeusPiratas.FormattingEnabled = true;
+            this.MeusPiratas.Location = new System.Drawing.Point(188, 33);
+            this.MeusPiratas.Name = "MeusPiratas";
+            this.MeusPiratas.Size = new System.Drawing.Size(131, 134);
+            this.MeusPiratas.TabIndex = 47;
+            this.MeusPiratas.SelectedIndexChanged += new System.EventHandler(this.MeusPiratas_SelectedIndexChanged);
+            // 
+            // Cartas
+            // 
+            this.Cartas.FormattingEnabled = true;
+            this.Cartas.Location = new System.Drawing.Point(19, 33);
+            this.Cartas.Name = "Cartas";
+            this.Cartas.Size = new System.Drawing.Size(139, 134);
+            this.Cartas.TabIndex = 46;
+            this.Cartas.SelectedIndexChanged += new System.EventHandler(this.Cartas_SelectedIndexChanged_1);
             // 
             // btPular
             // 
@@ -228,26 +246,8 @@
             // 
             // timer1
             // 
-            this.timer1.Interval = 10;
+            this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick_1);
-            // 
-            // Cartas
-            // 
-            this.Cartas.FormattingEnabled = true;
-            this.Cartas.Location = new System.Drawing.Point(19, 33);
-            this.Cartas.Name = "Cartas";
-            this.Cartas.Size = new System.Drawing.Size(139, 134);
-            this.Cartas.TabIndex = 46;
-            this.Cartas.SelectedIndexChanged += new System.EventHandler(this.Cartas_SelectedIndexChanged_1);
-            // 
-            // MeusPiratas
-            // 
-            this.MeusPiratas.FormattingEnabled = true;
-            this.MeusPiratas.Location = new System.Drawing.Point(188, 33);
-            this.MeusPiratas.Name = "MeusPiratas";
-            this.MeusPiratas.Size = new System.Drawing.Size(131, 134);
-            this.MeusPiratas.TabIndex = 47;
-            this.MeusPiratas.SelectedIndexChanged += new System.EventHandler(this.MeusPiratas_SelectedIndexChanged);
             // 
             // frmPartida
             // 

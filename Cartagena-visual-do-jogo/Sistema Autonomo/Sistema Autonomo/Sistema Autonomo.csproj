@@ -63,6 +63,7 @@
     <Compile Include="frmPartida.Designer.cs">
       <DependentUpon>frmPartida.cs</DependentUpon>
     </Compile>
+    <Compile Include="Partida.cs" />
     <Compile Include="Pirata.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

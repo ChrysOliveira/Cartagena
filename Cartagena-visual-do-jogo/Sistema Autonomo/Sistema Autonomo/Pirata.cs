@@ -9,12 +9,14 @@ namespace Sistema_Autonomo
     public class Pirata
     {
         private int casa;
+        private string simbolo;
         private int posicaoNaLista;
 
         public Pirata(int posicaoNaLista)
         {
             casa = 0;
             this.posicaoNaLista = posicaoNaLista;
+            simbolo= null;
         }
 
 
@@ -31,14 +33,16 @@ namespace Sistema_Autonomo
             get { return posicaoNaLista; }
         }
 
-        public void AvancaPirata(int casa)
+        public void AvancaPirata(int casa, string simbolo)
         {
-            
+            this.casa = casa;
+            this.simbolo = simbolo;
         }
 
-        public void VoltarPirata(int casa)
+        public void VoltarPirata(int casa, string simbolo)
         {
-
+            this.casa = casa;
+            this.simbolo = simbolo;
 
         }
     }

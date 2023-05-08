@@ -76,18 +76,29 @@ namespace Sistema_Autonomo
 
             HistoricoPartida.Items.Clear(); // Limpa a lista de itens da ListView
 
-            foreach (string item in retorno)
+            if (retorno[0] == "")
             {
-                string[] partes = item.Split(':'); // Divide o item em duas partes separadas por ":"
-                string descricao = partes[0].Trim(); // A primeira parte é a descrição do evento
-                string hora = partes[1].Trim(); // A segunda parte é a hora em que o evento ocorreu
 
-                // Cria um novo item de ListView com a descrição e a hora
-                ListViewItem novoItem = new ListViewItem(new[] { descricao, hora });
-
-                // Adiciona o novo item à lista de itens da ListView
-                HistoricoPartida.Items.Add(novoItem);
             }
+            else
+            {
+                foreach (string item in retorno)
+                {
+                
+                    string nJogador = item[0].ToString();
+                    string nJogada = item[1].ToString();
+                    string simbolo = item[2].ToString(); 
+                    string origem = item[3].ToString();
+                    string destino = item[4].ToString();
+
+                    // Cria um novo item de ListView com a Id do Jogador, N° da jogada, Símbolo, Posição de origem, Posição de Destino
+                    ListViewItem novoItem = new ListViewItem(new[] { nJogador, nJogada, simbolo, origem, destino });
+
+                    // Adiciona o novo item à lista de itens da ListView
+                    HistoricoPartida.Items.Add(novoItem);
+                }
+            }
+            
 
         }
 
@@ -154,22 +165,21 @@ namespace Sistema_Autonomo
                 lblJogadorVez.Text += $"\nNa posicao: {situacaoTabuleiro[0]} o jogador {situacaoTabuleiro[1]} possui {situacaoTabuleiro[2]} piratas";
             }
         }
-
-        private void timer1_Tick_1(object sender, EventArgs e)
+        private void Atualizar_infos()
         {
-            btnExibirTabuleiro.PerformClick();
-            // Cria um objeto EventArgs vazio, já que o evento não requer argumentos
-            EventArgs args = EventArgs.Empty;
-
-            // Chama o evento SelectedIndexChanged usando o método Invoke
-            HistoricoPartida.Invoke(new EventHandler(HistoricoPartida_SelectedIndexChanged), new object[] { this, args });
-
             Verificar_Vez();
 
             btnExibirTabuleiro.PerformClick();
 
             HistoricoPartida_SelectedIndexChanged(this, EventArgs.Empty);
 
+            btnExibirTabuleiro.PerformClick();
+        }
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            
+           Atualizar_infos();
+            
             Cartas_SelectedIndexChanged_1(sender, EventArgs.Empty);
 
             MeusPiratas_SelectedIndexChanged(sender, EventArgs.Empty);
@@ -192,6 +202,8 @@ namespace Sistema_Autonomo
                CartaSelecionada = Cartas.SelectedItem.ToString();
                 
             }
+
+            
         }
 
         private void MeusPiratas_SelectedIndexChanged(object sender, EventArgs e)
