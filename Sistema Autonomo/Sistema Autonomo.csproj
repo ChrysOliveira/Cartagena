@@ -81,6 +81,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\DataSources\CartagenaServer.Jogo.datasource" />
     <None Include="Properties\DataSources\frmInicial.datasource" />
@@ -99,6 +100,33 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\Chave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\Esqueleto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\Faca.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\Garrafa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\imagemparateste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\imagemparateste2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\Pistola.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="imagens\Tricornio.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Classes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
