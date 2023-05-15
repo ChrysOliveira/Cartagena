@@ -49,16 +49,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmInicial.cs">
+    <Compile Include="Classes\CasaTabuleiro.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Jogador.cs" />
+    <Compile Include="Classes\Partida.cs" />
+    <Compile Include="Classes\Pirata.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Classes\Tabuleiro.cs" />
+    <Compile Include="Classes\Utils.cs" />
+    <Compile Include="Formularios\FrmInGame.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInicial.Designer.cs">
-      <DependentUpon>frmInicial.cs</DependentUpon>
+    <Compile Include="Formularios\FrmInGame.Designer.cs">
+      <DependentUpon>FrmInGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmInicial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmInicial.Designer.cs">
+      <DependentUpon>FrmInicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmLobby.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmLobby.Designer.cs">
+      <DependentUpon>FrmLobby.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\FrmModelo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\FrmModelo.Designer.cs">
+      <DependentUpon>FrmModelo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmInicial.resx">
-      <DependentUpon>frmInicial.cs</DependentUpon>
+    <EmbeddedResource Include="Formularios\FrmInGame.resx">
+      <DependentUpon>FrmInGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmInicial.resx">
+      <DependentUpon>FrmInicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmLobby.resx">
+      <DependentUpon>FrmLobby.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\FrmModelo.resx">
+      <DependentUpon>FrmModelo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -84,28 +121,43 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\imagemteste.png" />
+    <None Include="Imagens\ADAGA.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imagens\imagemparateste.png" />
+    <None Include="Imagens\AMARELO.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imagens\Adaga.png" />
+    <None Include="Imagens\AZUL.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imagens\Caveira.png" />
+    <None Include="Imagens\BARCO.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imagens\chapeu.png" />
+    <None Include="Imagens\CAVEIRA.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imagens\chave.png" />
+    <None Include="Imagens\CHAPEU.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imagens\pistola.png" />
+    <None Include="Imagens\CHAVE.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="imagens\garrafa.png" />
+    <None Include="Imagens\GARRAFA.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\MARROM.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\PISTOLAS.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\VERDE.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\VERMELHO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Imagens\FUNDO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

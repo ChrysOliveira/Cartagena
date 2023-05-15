@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sistema_Autonomo.Formularios;
 
 namespace Sistema_Autonomo
 {
@@ -16,7 +17,7 @@ namespace Sistema_Autonomo
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmInicial());
+            Application.Run(new FrmInicial());
         }
     }
 }
