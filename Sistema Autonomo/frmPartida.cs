@@ -19,6 +19,7 @@ namespace Sistema_Autonomo
         int IdPartida;
         Tabuleiro tabuleiro;
         string CartaSelecionada;
+        Estrategia estrategia;
         public frmPartida(Jogador jogador, int IdPartida)
         {
             InitializeComponent();
@@ -28,24 +29,7 @@ namespace Sistema_Autonomo
 
         }
 
-        public void btnIniciarPartida_Click(object sender, EventArgs e)
-        {
-            panelQualquer.Visible = true;
-
-            timer1.Enabled = true;
-
-            int idJogadorRodada = int.Parse(Jogo.IniciarPartida(jogador.Id, jogador.senha));
-
-            List<string> retorno = Jogo.ConsultarMao(jogador.Id, jogador.senha)
-                .Replace("\r", "").Split('\n').ToList();
-
-            Cartas.Items.Clear(); // Limpa a lista de cartas na mão
-
-            foreach (string item in retorno)
-            {
-                Cartas.Items.Add(item); // Adiciona cada carta à lista de cartas na mão
-            }
-        }
+        
 
         public void btJogar_Click(object sender, EventArgs e)
         {
@@ -72,6 +56,7 @@ namespace Sistema_Autonomo
         private void HistoricoPartida_SelectedIndexChanged(object sender, EventArgs e)
         {
             string retorno = Jogo.ExibirHistorico(IdPartida);
+            Historico historico = new Historico(retorno);
             if( retorno != null && retorno != "")
             {
                 List<string> histo = retorno
@@ -82,11 +67,13 @@ namespace Sistema_Autonomo
                     {
                     
                         string[] partes = item.Split(':'); // Divide o item em duas partes separadas por ":"
-                        string descricao = partes[0].Trim(); // A primeira parte é a descrição do evento
-                        string hora = partes[1].Trim(); // A segunda parte é a hora em que o evento ocorreu
-
+                        string idJogador = partes[0].Trim(); // A primeira parte é a descrição do evento
+                        string jogadaN = partes[1].Trim(); // A segunda parte é a hora em que o evento ocorreu
+                        string simbolo = partes[2].Trim();
+                        string origem = partes[3].Trim();
+                        string destino = partes[4].Trim();
                         // Cria um novo item de ListView com a descrição e a hora
-                        ListViewItem novoItem = new ListViewItem(new[] { descricao, hora });
+                        ListViewItem novoItem = new ListViewItem(new[] { idJogador, jogadaN, simbolo, origem, destino });
 
                         // Adiciona o novo item à lista de itens da ListView
                         HistoricoPartida.Items.Add(novoItem);
@@ -111,7 +98,9 @@ namespace Sistema_Autonomo
             {
                 simbolos.Add(item);
             }
-            tabuleiro = new Tabuleiro(simbolos, jogador.Piratas);
+            Tabuleiro tabuleiro = new Tabuleiro(simbolos, jogador.Piratas);
+
+            tabuleiro.CriaMapa();
 
 
             List<string> retorno = Jogo.ExibirTabuleiro(IdPartida)
@@ -125,12 +114,7 @@ namespace Sistema_Autonomo
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-           
-
-
-        }
+        
 
         private void lblJogadorVez_Click(object sender, EventArgs e)
         {
@@ -164,29 +148,51 @@ namespace Sistema_Autonomo
             return primeirosDados[1];
         }
 
+        public void btnIniciarPartida_Click(object sender, EventArgs e)
+        {
+            panelQualquer.Visible = true;
+
+            timer1.Enabled = true;
+
+            int idJogadorRodada = int.Parse(Jogo.IniciarPartida(jogador.Id, jogador.senha));
+
+            List<string> retorno = Jogo.ConsultarMao(jogador.Id, jogador.senha)
+                .Replace("\r", "").Split('\n').ToList();
+
+            Cartas.Items.Clear(); // Limpa a lista de cartas na mão
+
+            foreach (string item in retorno)
+            {
+                Cartas.Items.Add(item); // Adiciona cada carta à lista de cartas na mão
+            }
+            btnExibirTabuleiro.PerformClick();
+
+            EventArgs args = EventArgs.Empty;
+            HistoricoPartida.Invoke(new EventHandler(HistoricoPartida_SelectedIndexChanged), new object[] { this, args });
+        }
 
         private void timer1_Tick_1(object sender, EventArgs e)
         {
-            btnExibirTabuleiro.PerformClick();
-            // Cria um objeto EventArgs vazio, já que o evento não requer argumentos
-            EventArgs args = EventArgs.Empty;
-
-            // Chama o evento SelectedIndexChanged usando o método Invoke
-            HistoricoPartida.Invoke(new EventHandler(HistoricoPartida_SelectedIndexChanged), new object[] { this, args });
+            
+            
             string JogadorVez =
             Verificar_Vez();
-            if(int.TryParse(JogadorVez) == jogador.Id())
-            {
 
+            int IddoJogador = jogador.Id;
+            if(int.Parse(JogadorVez) == IddoJogador)
+            {
+                HistoricoPartida_SelectedIndexChanged(this, EventArgs.Empty);
+
+                Cartas_SelectedIndexChanged_1(sender, EventArgs.Empty);
+
+                MeusPiratas_SelectedIndexChanged(sender, EventArgs.Empty);
+
+                estrategia.JogarSemEstrategia();
             }
 
-            btnExibirTabuleiro.PerformClick();
+           
 
-            HistoricoPartida_SelectedIndexChanged(this, EventArgs.Empty);
-
-            Cartas_SelectedIndexChanged_1(sender, EventArgs.Empty);
-
-            MeusPiratas_SelectedIndexChanged(sender, EventArgs.Empty);
+            
         }
 
         private void Cartas_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -199,6 +205,7 @@ namespace Sistema_Autonomo
             foreach (string item in retorno)
             {
                 Cartas.Items.Add(item); // Adiciona cada carta à lista de cartas na mão
+                jogador.ADDCartas(item);
             }
 
             if (Cartas.SelectedItems.Count > 0)
@@ -206,6 +213,8 @@ namespace Sistema_Autonomo
                CartaSelecionada = Cartas.SelectedItem.ToString();
                 
             }
+
+
         }
 
         private void MeusPiratas_SelectedIndexChanged(object sender, EventArgs e)

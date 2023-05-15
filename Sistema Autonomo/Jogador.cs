@@ -10,16 +10,17 @@ namespace Sistema_Autonomo
     public class Jogador
     {
         int ID;
-        private string Senha;
-        public string Cor;
+        private string senha;
+        public string cor;
         List<Pirata> piratas;
+        List<string> cartas;
         
 
          public Jogador (int ID, string Senha, string Cor)
         {
             this.ID = ID;
-            this.Senha = Senha;
-            this.Cor = Cor;
+            this.senha = Senha;
+            this.cor = Cor;
             piratas = new List<Pirata>();
             for(int i = 0; i < 6; i++)
             {
@@ -30,7 +31,7 @@ namespace Sistema_Autonomo
         public Jogador (int ID, string cor)
         {
             this.ID = ID;
-            this.Senha = cor;
+            this.senha = cor;
             piratas = new List<Pirata>();
             for (int i = 0; i < 6; i++)
             {
@@ -40,11 +41,23 @@ namespace Sistema_Autonomo
         }
 
         public List<Pirata> Piratas { get { return piratas; } }
+        public int PirataCasa(int id) { return piratas[id].PosicaoNaLista; }
 
         public int Id { get { return ID; } }
-        public string senha { get { return Senha; } }
+        public string Senha { get { return Senha; } }
 
-        public string cor { get { return Cor; } }
+        public string Cor { get { return Cor; } }
+
+        public void ADDCartas(string carta)
+        {
+            cartas.Add(carta);
+        }
+        public string EscolherCarta()
+        {
+            string cartaEscolhida = cartas[0];
+            cartas.Remove(0);
+            return cartaEscolhida;
+        }
 
 
         public int ObterCasaDoPirata(int posicaoDoPirata)

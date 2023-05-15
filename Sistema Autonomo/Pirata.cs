@@ -8,6 +8,7 @@ namespace Sistema_Autonomo
 {
     public class Pirata
     {
+        p
         private int casa;
         private int posicaoNaLista;
         string simbolo;

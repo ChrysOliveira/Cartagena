@@ -56,6 +56,7 @@
     <Compile Include="frmInicial.Designer.cs">
       <DependentUpon>frmInicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Historico.cs" />
     <Compile Include="Jogador.cs" />
     <Compile Include="frmPartida.cs">
       <SubType>Form</SubType>

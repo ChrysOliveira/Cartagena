@@ -36,17 +36,18 @@ namespace Sistema_Autonomo
             return pictureBoxPirata;
         }
 
-        PictureBox criado = CriaPainelPirata();
-        List<Panel> panelList = new List<Panel>();
-
-        panelList[0].Left = margemX + (pos1[pos * 2] * 50);
-                    panelList[0].Top = margemY + (pos1[(pos * 2) + 1] * 50);
-
-            this.Controls.Add(panelList[0]);
-
+        
 
         private Panel CriaPainel()
         {
+            PictureBox criado = CriaPainelPirata();
+            List<Panel> panelList = new List<Panel>();
+
+            panelList[0].Left = margemX + (pos1[pos * 2] * 50);
+                        panelList[0].Top = margemY + (pos1[(pos * 2) + 1] * 50);
+
+                this.Controls.Add(panelList[0]);
+
             Panel panel = new Panel();
             panel.BackgroundImageLayout = ImageLayout.Stretch;
             panel.Width = 75;
@@ -54,7 +55,7 @@ namespace Sistema_Autonomo
             panel.SendToBack();
             return panel;
         }
-        private void CriaMapa()
+        public void CriaMapa()
         {
             List<Panel> panelList = new List<Panel>();
 
