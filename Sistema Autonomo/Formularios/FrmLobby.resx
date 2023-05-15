@@ -117,44 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="ADAGA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\ADAGA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AMARELO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\AMARELO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="AZUL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\AZUL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BARCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\BARCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CAVEIRA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\CAVEIRA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CHAPEU" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\CHAPEU.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="CHAVE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\CHAVE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FUNDO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\FUNDO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="GARRAFA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\GARRAFA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MARROM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\MARROM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PISTOLAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\PISTOLAS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VERDE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\VERDE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="VERMELHO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\VERMELHO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
+  <metadata name="TimerAttListaJogadores.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>
