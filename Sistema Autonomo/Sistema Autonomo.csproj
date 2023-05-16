@@ -52,6 +52,8 @@
     <Compile Include="Classes\CasaTabuleiro.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Classes\Estrategia.cs" />
+    <Compile Include="Classes\Historico.cs" />
     <Compile Include="Classes\Jogador.cs" />
     <Compile Include="Classes\Partida.cs" />
     <Compile Include="Classes\Pirata.cs">

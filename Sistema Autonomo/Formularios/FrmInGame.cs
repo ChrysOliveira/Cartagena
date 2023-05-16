@@ -88,19 +88,19 @@ namespace Sistema_Autonomo.Formularios
 
                 if (valores[1] == "T")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.CHAPEU;
+                    novaCasa.BackgroundImage = Properties.Resources.CHAPEU; //Tricornio
                 }
                 else if (valores[1] == "E")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.CAVEIRA;
+                    novaCasa.BackgroundImage = Properties.Resources.CAVEIRA; //Esqueleto
                 }
                 else if (valores[1] == "F")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.ADAGA;
+                    novaCasa.BackgroundImage = Properties.Resources.ADAGA; //Faca
                 }
                 else if (valores[1] == "G")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.GARRAFA;
+                    novaCasa.BackgroundImage = Properties.Resources.GARRAFA; 
                 }
                 else if (valores[1] == "P")
                 {
@@ -298,6 +298,7 @@ namespace Sistema_Autonomo.Formularios
         }
         private void btnJogar_Click(object sender, EventArgs e)
         {
+            //eu preciso saber como selecionar esses botoes para entrar nos seus ifs
             if (rdBtnPularVez.Checked)
             {
                 Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador);
@@ -314,11 +315,14 @@ namespace Sistema_Autonomo.Formularios
                 string carta = lsbCartasJogadorVez.Text.Split(',').First().Substring(9);
                 Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador, posicao, carta);
             }
+            
 
             AtualizaJogadorRodada();
             AtualizaListaCartas();
             AtualizaListaPiratas();
         }
+
+
         private void TimerAttViewMenus_Tick(object sender, EventArgs e)
         {
             if (rdBtnPularVez.Checked)
@@ -336,6 +340,9 @@ namespace Sistema_Autonomo.Formularios
                 lsbCartasJogadorVez.Enabled = true;
             }
         }
+
+        
+
         private void TimerAttDadosTela_Tick(object sender, EventArgs e)
         {
             AtualizaPiratasNoMapa();
