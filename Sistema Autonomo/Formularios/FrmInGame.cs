@@ -32,7 +32,7 @@ namespace Sistema_Autonomo.Formularios
         {
             Partida.Tabuleiro.ListaTabuleiro = Utils.transformaEmLista(Jogo.ExibirTabuleiro(Partida.idPartida));
             partida.HistoricoPartida = Utils.transformaEmLista(Jogo.ExibirHistorico(partida.idPartida));
-
+            
             CriaMapa();
             AtualizaJogadorRodada();
             AtualizaListaPiratas();
@@ -88,19 +88,19 @@ namespace Sistema_Autonomo.Formularios
 
                 if (valores[1] == "T")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.CHAPEU;
+                    novaCasa.BackgroundImage = Properties.Resources.CHAPEU; //Tricornio
                 }
                 else if (valores[1] == "E")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.CAVEIRA;
+                    novaCasa.BackgroundImage = Properties.Resources.CAVEIRA; //Esqueleto
                 }
                 else if (valores[1] == "F")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.ADAGA;
+                    novaCasa.BackgroundImage = Properties.Resources.ADAGA; //Faca
                 }
                 else if (valores[1] == "G")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.GARRAFA;
+                    novaCasa.BackgroundImage = Properties.Resources.GARRAFA; 
                 }
                 else if (valores[1] == "P")
                 {
@@ -264,34 +264,34 @@ namespace Sistema_Autonomo.Formularios
                         continue;
                     }
                     else if (dados[3] != "")
-                    {
+                        {
                         int casaDeleta = int.Parse(dados[3]);
                         int casaAtribui = int.Parse(dados[4]);
 
                         foreach (var pirata in partida.Tabuleiro.CasasDoTabuleiro[casaDeleta].PiratasDaCasa)
-                        {
-                            if (pirata.IdJogador == int.Parse(dados[0]))
                             {
-                                pirata.IdJogador = 0;
-                                pirata.CorPirata = null;
-                                pirata.Visible = false;
+                                    if (pirata.IdJogador == int.Parse(dados[0]))
+                                    {
+                                        pirata.IdJogador = 0;
+                                        pirata.CorPirata = null;
+                                        pirata.Visible = false;
                                 break;
+                                    }
                             }
-                        }
 
                         foreach (var pirata in partida.Tabuleiro.CasasDoTabuleiro[casaAtribui].PiratasDaCasa)
-                        {
-                            if (pirata.IdJogador == 0)
-                            {
-                                pirata.IdJogador = int.Parse(dados[0]);
-                                string[] dadosJogador = partida.ListaJogadores.Find(jogador => jogador.StartsWith(dados[0])).Split(',');
-                                pirata.CorPirata = dadosJogador[2];
-                                DefineCorDoPirata(pirata);
-                                pirata.Visible = true;
-                                break;
+                                {
+                                    if (pirata.IdJogador == 0)
+                                    {
+                                        pirata.IdJogador = int.Parse(dados[0]);
+                                        string[] dadosJogador = partida.ListaJogadores.Find(jogador => jogador.StartsWith(dados[0])).Split(',');
+                                        pirata.CorPirata = dadosJogador[2];
+                                        DefineCorDoPirata(pirata);
+                                        pirata.Visible = true;
+                                        break;
+                                    }
+                                }
                             }
-                        }
-                    }
                     partida.HistoricoPartida.Add(historicoItem);
                 }
             }
@@ -314,7 +314,7 @@ namespace Sistema_Autonomo.Formularios
                 string carta = lsbCartasJogadorVez.Text.Split(',').First().Substring(9);
                 Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador, posicao, carta);
             }
-
+            
             AtualizaJogadorRodada();
             AtualizaListaCartas();
             AtualizaListaPiratas();
