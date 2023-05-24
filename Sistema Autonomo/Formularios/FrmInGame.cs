@@ -17,6 +17,7 @@ namespace Sistema_Autonomo.Formularios
     {
         Partida partida;
         Jogador jogador;
+        Tabuleiro tabuleiro;
 
         int margemY = 10, margemX = 10;
 
@@ -27,168 +28,21 @@ namespace Sistema_Autonomo.Formularios
             InitializeComponent();
             this.Partida = partida;
             this.Jogador = jogador;
+            tabuleiro= new Tabuleiro();
         }
         private void FrmInGame_Load(object sender, EventArgs e)
         {
             Partida.Tabuleiro.ListaTabuleiro = Utils.transformaEmLista(Jogo.ExibirTabuleiro(Partida.idPartida));
             partida.HistoricoPartida = Utils.transformaEmLista(Jogo.ExibirHistorico(partida.idPartida));
             
-            CriaMapa();
+            tabuleiro.CriaMapa(pnlTabuleiro); //agora é uma função de tabuleiro e precisa passar o parametro do painel 
+
             AtualizaJogadorRodada();
             AtualizaListaPiratas();
             AtualizaListaCartas();
+            AtualizaPiratasNoMapa();
         }
-        private void CriaPiratasNaCasa(CasaTabuleiro casa)
-        {
-            for (int i = 0; i < 3; i++)
-            {
-                Pirata pirata = new Pirata();
-                pirata.BackgroundImageLayout = ImageLayout.Stretch;
-                pirata.Width = 20;
-                pirata.Height = 20;
-                if (i == 0)
-                {
-                    pirata.Location = new Point(20, casa.Height - 40);
-                }
-                else if (i == 1)
-                {
-                    pirata.Location = new Point(40, 20);
-                }
-                else if (i == 2)
-                {
-                    pirata.Location = new Point(casa.Width - 40, casa.Height - 40);
-                }
-
-                casa.PiratasDaCasa.Add(pirata);
-                pirata.NumeroDaCasa = casa.NumeroCasa;
-                pirata.BringToFront();
-                pirata.Visible = false;
-                partida.Tabuleiro.PiratasTabuleiro.Add(pirata);
-                casa.Controls.Add(pirata);
-            }
-        }
-        private CasaTabuleiro CriaCasa(int id)
-        {
-            CasaTabuleiro casa = new CasaTabuleiro(id);
-            casa.BackgroundImageLayout = ImageLayout.Stretch;
-            casa.Width = 100;
-            casa.Height = 100;
-            CriaPiratasNaCasa(casa);
-            return casa;
-        }
-        private void DefineSimbolos()
-        {
-            int id = 0;
-
-            foreach (string item in Partida.Tabuleiro.ListaTabuleiro)
-            {
-                string[] valores = item.Split(',');
-
-                CasaTabuleiro novaCasa = CriaCasa(id);
-
-                if (valores[1] == "T")
-                {
-                    novaCasa.BackgroundImage = Properties.Resources.CHAPEU; //Tricornio
-                }
-                else if (valores[1] == "E")
-                {
-                    novaCasa.BackgroundImage = Properties.Resources.CAVEIRA; //Esqueleto
-                }
-                else if (valores[1] == "F")
-                {
-                    novaCasa.BackgroundImage = Properties.Resources.ADAGA; //Faca
-                }
-                else if (valores[1] == "G")
-                {
-                    novaCasa.BackgroundImage = Properties.Resources.GARRAFA; 
-                }
-                else if (valores[1] == "P")
-                {
-                    novaCasa.BackgroundImage = Properties.Resources.PISTOLAS;
-                }
-                else if (valores[1] == "C")
-                {
-                    novaCasa.BackgroundImage = Properties.Resources.CHAVE;
-                }
-                else if (valores[1] == " " && valores[0] == "37")
-                {
-                    novaCasa.BackgroundImage = Properties.Resources.BARCO;
-                }
-                else if (valores[1] == " " && valores[0] == "0")
-                {
-                    novaCasa.BackgroundImage = Properties.Resources.FUNDO;
-                }
-                id++;
-                Partida.Tabuleiro.CasasDoTabuleiro.Add(novaCasa);
-            }
-        }
-        private void DefinePosicoes()
-        {
-            int direcao = 0;
-            int contaDescida = 0;
-            int y = 0, x = 0;
-
-            for (int i = 0; i < partida.Tabuleiro.CasasDoTabuleiro.Count; i++)
-            {
-                if ((margemX + (x * partida.Tabuleiro.CasasDoTabuleiro[i].Width) < pnlTabuleiro.Width - margemX) && direcao == 0)
-                {
-                    partida.Tabuleiro.CasasDoTabuleiro[i].Top = margemY + (y * partida.Tabuleiro.CasasDoTabuleiro[i].Width);
-                    partida.Tabuleiro.CasasDoTabuleiro[i].Left = margemX + (x * partida.Tabuleiro.CasasDoTabuleiro[i].Width);
-
-                    if ((margemX + ((x + 1) * partida.Tabuleiro.CasasDoTabuleiro[i].Width) < pnlTabuleiro.Width - margemX))
-                    {
-                        x++;
-                    }
-                    else
-                    {
-                        contaDescida = 0;
-                        direcao = 2;
-                    }
-
-                }
-                else if (contaDescida < 2 && direcao == 2)
-                {
-                    partida.Tabuleiro.CasasDoTabuleiro[i].Left = margemX + (x * partida.Tabuleiro.CasasDoTabuleiro[i].Width);
-                    y++;
-                    partida.Tabuleiro.CasasDoTabuleiro[i].Top = margemY + (y * partida.Tabuleiro.CasasDoTabuleiro[i].Width);
-
-                    contaDescida++;
-
-                    if ((margemX + (x * partida.Tabuleiro.CasasDoTabuleiro[i].Width) == margemX) && contaDescida == 2)
-                    {
-                        direcao = 0;
-                        x++;
-                    }
-                    else if ((margemX + (x * partida.Tabuleiro.CasasDoTabuleiro[i].Width) < pnlTabuleiro.Width - margemX) && contaDescida == 2)
-                    {
-                        direcao = 1;
-                    }
-                }
-                else if ((margemX + (x * partida.Tabuleiro.CasasDoTabuleiro[i].Width) >= margemX) && direcao == 1)
-                {
-                    partida.Tabuleiro.CasasDoTabuleiro[i].Top = margemY + (y * partida.Tabuleiro.CasasDoTabuleiro[i].Width);
-
-                    if ((margemX + ((x - 1) * partida.Tabuleiro.CasasDoTabuleiro[i].Width) > margemX))
-                    {
-                        x--;
-                    }
-                    else
-                    {
-                        x--;
-                        contaDescida = 0;
-                        direcao = 2;
-                    }
-
-                    partida.Tabuleiro.CasasDoTabuleiro[i].Left = margemX + (x * partida.Tabuleiro.CasasDoTabuleiro[i].Width);
-                }
-                pnlTabuleiro.Controls.Add(partida.Tabuleiro.CasasDoTabuleiro[i]);
-            }
-        }
-        private void CriaMapa()
-        {
-            DefineSimbolos();
-            DefinePosicoes();
-        }
+        
         private void AtualizaJogadorRodada()
         {
             string[] retorno = Utils.transformaEmLista(Jogo.VerificarVez(partida.idPartida)).First().Split(',');
@@ -252,6 +106,7 @@ namespace Sistema_Autonomo.Formularios
         private void AtualizaPiratasNoMapa()
         {
             List<string> diferencaHistorico = Utils.transformaEmLista(Jogo.ExibirHistorico(partida.idPartida));
+            RetornoPiratas();
 
             foreach (var historicoItem in diferencaHistorico)
             {
@@ -296,6 +151,21 @@ namespace Sistema_Autonomo.Formularios
                 }
             }
         }
+
+        public List<string> RetornoPiratas()
+        {
+            List<string> dados = new List<string>();
+            dados = Utils.transformaEmLista(Jogo.VerificarVez(partida.idPartida));
+
+            dados.Remove(dados[0]);
+            dados.Remove(dados[1]);
+            dados.Remove(dados[2]);
+            return dados;
+
+            
+        }
+
+
         private void btnJogar_Click(object sender, EventArgs e)
         {
             if (rdBtnPularVez.Checked)
@@ -318,6 +188,7 @@ namespace Sistema_Autonomo.Formularios
             AtualizaJogadorRodada();
             AtualizaListaCartas();
             AtualizaListaPiratas();
+            AtualizaPiratasNoMapa();
         }
         private void TimerAttViewMenus_Tick(object sender, EventArgs e)
         {
