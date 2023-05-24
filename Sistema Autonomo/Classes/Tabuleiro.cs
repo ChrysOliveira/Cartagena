@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -11,20 +11,21 @@ namespace Sistema_Autonomo.Classes
     internal class Tabuleiro
     {
         private int posicaoX, posicaoY;
+        //tamanho do paineol no FrmInGame
         static int width = 1120;
         static int heigth = 737;
+
         private List<string> listaTabuleiro;
         private List<CasaTabuleiro> casasDoTabuleiro;
         private List<Pirata> piratasTabuleiro;
 
         int margemY = 10, margemX = 10;
 
-
         //to querendo salvar algumas prioridades para poder escolher a jogada
         /*marcar todas as casas que podem comprar cartas
          * as casas que podem comprar 2 tem prioridade maior
          * marcar o pirata e simbolo que consegue andar mais que 12 casa
-         * caso nenhum pirata consiga, procurar mais que 8 casas
+         * caso nenhum pirata consiga, procurar mais que 8 casas(ainda to pensando melhor sobre isso)
          * se nao conseguir procurar melhor jogada para comprar
          * ao avançar nunca deixar a casa que avançei com 2 piratas de preferencia(ainda nao sei os detalhes de como fazer isso)
          * 
@@ -49,9 +50,6 @@ namespace Sistema_Autonomo.Classes
         public List<string> ListaTabuleiro { get => listaTabuleiro; set => listaTabuleiro = value; }
         public List<CasaTabuleiro> CasasDoTabuleiro { get => casasDoTabuleiro; set => casasDoTabuleiro = value; }
         public List<Pirata> PiratasTabuleiro { get => piratasTabuleiro; set => piratasTabuleiro = value; }
-
-
-
 
         private void CriaPiratasNaCasa(CasaTabuleiro casa)
         {
@@ -103,7 +101,7 @@ namespace Sistema_Autonomo.Classes
 
                 if (valores[1] == "T")                                      
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.IRICORNIO; //Tricornio
+                    novaCasa.BackgroundImage = Properties.Resources.TRICORNIO; //Tricornio
                 }
                 else if (valores[1] == "E")
                 {
@@ -204,9 +202,5 @@ namespace Sistema_Autonomo.Classes
             DefineSimbolos();
             DefinePosicoes(pnlTabuleiro);
         }
-
-
-
-
     }
 }

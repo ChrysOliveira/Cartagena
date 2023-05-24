@@ -98,7 +98,7 @@
             this.lsbPiratasJogadorVez.FormattingEnabled = true;
             this.lsbPiratasJogadorVez.Location = new System.Drawing.Point(12, 392);
             this.lsbPiratasJogadorVez.Name = "lsbPiratasJogadorVez";
-            this.lsbPiratasJogadorVez.Size = new System.Drawing.Size(110, 147);
+            this.lsbPiratasJogadorVez.Size = new System.Drawing.Size(118, 147);
             this.lsbPiratasJogadorVez.TabIndex = 6;
             // 
             // lsbCartasJogadorVez
@@ -189,7 +189,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1384, 761);
+            this.ClientSize = new System.Drawing.Size(1383, 759);
             this.Controls.Add(this.grpBoxAcoes);
             this.Controls.Add(this.btnJogar);
             this.Controls.Add(this.lblListaCartas);

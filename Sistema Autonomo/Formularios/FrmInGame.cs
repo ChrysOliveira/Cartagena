@@ -40,7 +40,7 @@ namespace Sistema_Autonomo.Formularios
             AtualizaJogadorRodada();
             AtualizaListaPiratas();
             AtualizaListaCartas();
-            AtualizaPiratasNoMapa();
+            
         }
         
         private void AtualizaJogadorRodada()
@@ -64,7 +64,7 @@ namespace Sistema_Autonomo.Formularios
             retorno.ForEach(item =>
             {
                 string[] dados = item.Split(',');
-                string informacao = $"Casa: {dados[0]}, Qnt Piratas:{dados[2]}";
+                string informacao = $"Casa: {dados[0]}, tem {dados[2]} Piratas";
                 lsbPiratasJogadorVez.Items.Add(informacao);
             });
 
@@ -105,10 +105,12 @@ namespace Sistema_Autonomo.Formularios
         }
         private void AtualizaPiratasNoMapa()
         {
-            List<string> diferencaHistorico = Utils.transformaEmLista(Jogo.ExibirHistorico(partida.idPartida));
-            RetornoPiratas();
 
-            foreach (var historicoItem in diferencaHistorico)
+            List<string> diferencaHistorico = Utils.transformaEmLista(Jogo.ExibirHistorico(partida.idPartida));
+            List<string> Ppiratas =
+            RetornoPiratas();  
+
+            foreach (var historicoItem in Ppiratas)
             {
                 if (!partida.HistoricoPartida.Contains(historicoItem))
                 {
@@ -156,11 +158,13 @@ namespace Sistema_Autonomo.Formularios
         {
             List<string> dados = new List<string>();
             dados = Utils.transformaEmLista(Jogo.VerificarVez(partida.idPartida));
+                                        //eliminações do retorno verificar vez
+            dados.Remove(dados[0]);     //status da partida
+            dados.Remove(dados[1]);     //id jogador vez
+            dados.Remove(dados[2]);     //jogada atual jogador vez
+            return dados;   //situação do tabuleiro [posição, jogador, nº de piratas na casa]
 
-            dados.Remove(dados[0]);
-            dados.Remove(dados[1]);
-            dados.Remove(dados[2]);
-            return dados;
+            //dando erro no ponto de interrupção, nao consigo acessar esse metodo
 
             
         }
@@ -170,25 +174,28 @@ namespace Sistema_Autonomo.Formularios
         {
             if (rdBtnPularVez.Checked)
             {
-                Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador);
+                //Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador);
+                jogador.Pular();
             }
             else if (rdBtnRetornarPirata.Checked)
             {
                 int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
 
                 Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador, posicao);
+                //jogador.Volt_Pirata(IdPirata, NovaCasa, novoSimbolo); preciso saber o pirata escolhido, a nova casa e simbolo 
             }
             else if (rdBtnAvancarPirata.Checked)
             {
                 int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
                 string carta = lsbCartasJogadorVez.Text.Split(',').First().Substring(9);
                 Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador, posicao, carta);
+                //jogador.Av_Pirata(IdPirata, carta, posicao); preciso saber o pirata escolhido a nova casa e o novo simbolo
             }
             
             AtualizaJogadorRodada();
             AtualizaListaCartas();
             AtualizaListaPiratas();
-            AtualizaPiratasNoMapa();
+            
         }
         private void TimerAttViewMenus_Tick(object sender, EventArgs e)
         {
