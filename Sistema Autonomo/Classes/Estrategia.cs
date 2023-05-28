@@ -19,5 +19,6 @@ namespace Sistema_Autonomo.Classes
             this.jogador = jogador;
         }
         
+
     }
 }

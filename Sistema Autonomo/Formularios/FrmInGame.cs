@@ -17,7 +17,8 @@ namespace Sistema_Autonomo.Formularios
     {
         private Partida partida;
         private Jogador jogador;
-        
+
+
         public FrmInGame(Partida partida, Jogador jogador)
         {
             InitializeComponent();
@@ -42,11 +43,9 @@ namespace Sistema_Autonomo.Formularios
             AtualizaListaPiratas();
             AtualizaListaCartas();
 
-            if (partida.verificaVezJogador(jogador.IdJogador) == true)
-            {
-                partida.AtualizaCasasLivres();
-            }
-
+            partida.AtualizaCasasLivresParaAvancar();
+            jogador.AtualizarMeusPiratas(partida);
+            jogador.AtualizarCartasNaMao();
         }
         private void AtualizaJogadorRodada()
         {
@@ -79,6 +78,7 @@ namespace Sistema_Autonomo.Formularios
         {
             List<string> retorno = Utils.transformaEmLista(Jogo.ConsultarMao(jogador.IdJogador, jogador.SenhaJogador));
             lsbCartasJogadorVez.Items.Clear();
+
             retorno.ForEach(item =>
             {
                 string[] dados = item.Split(',');
@@ -86,94 +86,56 @@ namespace Sistema_Autonomo.Formularios
                 lsbCartasJogadorVez.Items.Add(informacao);
             });
         }
-        private void DefineCorDoPirata(Pirata pirata)
-        {
-            if (pirata.CorPirata == "Marrom")
-            {
-                pirata.BackgroundImage = Properties.Resources.MARROM;
-            }
-            else if (pirata.CorPirata == "Vermelho")
-            {
-                pirata.BackgroundImage = Properties.Resources.VERMELHO;
-            }
-            else if (pirata.CorPirata == "Amarelo")
-            {
-                pirata.BackgroundImage = Properties.Resources.AMARELO;
-            }
-            else if (pirata.CorPirata == "Verde")
-            {
-                pirata.BackgroundImage = Properties.Resources.VERDE;
-            }
-            else if (pirata.CorPirata == "Azul")
-            {
-                pirata.BackgroundImage = Properties.Resources.AZUL;
-            }
-        }
-        private void AtualizaPiratasNoMapa()
-        {
-
-            List<string> diferencaHistorico = Utils.transformaEmLista(Jogo.ExibirHistorico(partida.idPartida));
-
-            foreach (var historicoItem in diferencaHistorico)
-            {
-                if (!partida.HistoricoPartida.Contains(historicoItem))
-                {
-                    string[] dados = historicoItem.Split(',');
-
-                    if (dados[2] == "" && dados[3] == "")
-                    {
-                        continue;
-                    }
-                    else if (dados[3] != "")
-                    {
-                        int casaDeleta = int.Parse(dados[3]);
-                        int casaAtribui = int.Parse(dados[4]);
-
-                        foreach (var pirata in partida.Tabuleiro.CasasDoTabuleiro[casaDeleta].PiratasDaCasa)
-                        {
-                            if (pirata.IdJogador == int.Parse(dados[0]))
-                            {
-                                pirata.IdJogador = 0;
-                                pirata.CorPirata = null;
-                                pirata.Visible = false;
-                                break;
-                            }
-                        }
-
-                        foreach (var pirata in partida.Tabuleiro.CasasDoTabuleiro[casaAtribui].PiratasDaCasa)
-                        {
-                            if (pirata.IdJogador == 0)
-                            {
-                                pirata.IdJogador = int.Parse(dados[0]);
-                                string[] dadosJogador = partida.ListaJogadores.Find(jogador => jogador.StartsWith(dados[0])).Split(',');
-                                pirata.CorPirata = dadosJogador[2];
-                                DefineCorDoPirata(pirata);
-                                pirata.Visible = true;
-                                break;
-                            }
-                        }
-                    }
-                    partida.HistoricoPartida.Add(historicoItem);
-                }
-            }
-        }
         private void btnJogar_Click(object sender, EventArgs e)
         {
-            if (rdBtnPularVez.Checked)
+
+            //if (rdBtnPularVez.Checked)
+            //{
+            //    jogador.pularJogada();
+            //}
+            //else if (rdBtnRetornarPirata.Checked)
+            //{
+            //    try
+            //    {
+            //        int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
+            //        jogador.retornarPirata(posicao);
+
+            //    }catch(ArgumentOutOfRangeException ex)
+            //    {
+            //        MessageBox.Show("Selecione uma posicao", "Problema ao retornar o pirata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        Console.WriteLine(ex);
+            //        return;
+            //    }
+            //}
+            //else if (rdBtnAvancarPirata.Checked)
+            //{
+            //    try
+            //    {
+            //        int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
+            //        string carta = lsbCartasJogadorVez.Text.Split(',').First().Substring(9);
+            //        jogador.avancarPirata(posicao, carta);
+            //    }
+            //    catch (ArgumentOutOfRangeException ex)
+            //    {
+            //        MessageBox.Show("Selecione uma carta e uma posicao", "Problema ao avancar o pirata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        Console.WriteLine(ex);
+            //        return;
+            //    }
+            //}
+
+            if (jogador.MeusPiratas.Count < 6)
             {
-                jogador.pularJogada();
+                jogador.avancoInicial(partida);
             }
-            else if (rdBtnRetornarPirata.Checked)
+            else if (jogador.CartasNaMao.Count < 2)
             {
-                int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
-                jogador.retornarPirata(posicao);
-            }
-            else if (rdBtnAvancarPirata.Checked)
+                jogador.realizaCompra(partida);
+                jogador.avancarPirataMaisAtrasado(partida);
+            } else
             {
-                int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
-                string carta = lsbCartasJogadorVez.Text.Split(',').First().Substring(9);
-                jogador.avancarPirata(posicao, carta);
+                jogador.avancarPirataMaisAtrasado(partida);
             }
+
             AtualizaJogadorRodada();
             AtualizaListaCartas();
             AtualizaListaPiratas();
@@ -197,7 +159,11 @@ namespace Sistema_Autonomo.Formularios
         }
         private void TimerAttDadosTela_Tick(object sender, EventArgs e)
         {
-            AtualizaPiratasNoMapa();
+            if (!partida.verificaVezJogador(jogador.IdJogador))
+            {
+                partida.Tabuleiro.AtualizaPiratasNoMapa(partida);
+                AtualizaJogadorRodada();
+            }
         }
         private void btnJogar_MouseDown(object sender, MouseEventArgs e)
         {

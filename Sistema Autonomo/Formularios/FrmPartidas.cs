@@ -49,7 +49,16 @@ namespace Sistema_Autonomo.Formularios
         private void btnEntrarNaPartida_Click(object sender, EventArgs e)
         {
             string[] dadosPartidaSelecionada = lsbListaPartidas.Text.Split(',');
-            string[] retorno = Jogo.EntrarPartida(int.Parse(dadosPartidaSelecionada[0]), txbNomeJogador.Text, txbSenhaPartidaEntrar.Text).Replace("\r", "").Split(',');
+            string[] retorno = {""};
+
+            try
+            {
+                retorno = Jogo.EntrarPartida(int.Parse(dadosPartidaSelecionada[0]), txbNomeJogador.Text, txbSenhaPartidaEntrar.Text).Replace("\r", "").Split(',');
+            } catch (FormatException ex) {
+                MessageBox.Show("Selecione a partida que deseja entrar", "Problema ao entrar na partida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Console.WriteLine(ex);
+                return;
+            }
 
             if (retorno[0].StartsWith("ERRO"))
             {

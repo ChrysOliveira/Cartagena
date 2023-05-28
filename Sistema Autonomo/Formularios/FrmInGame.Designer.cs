@@ -38,6 +38,7 @@
             this.rdBtnAvancarPirata = new System.Windows.Forms.RadioButton();
             this.rdBtnRetornarPirata = new System.Windows.Forms.RadioButton();
             this.grpBoxAcoes = new System.Windows.Forms.GroupBox();
+            this.rdAvancoInicial = new System.Windows.Forms.RadioButton();
             this.TimerAttViewMenus = new System.Windows.Forms.Timer(this.components);
             this.TimerAttDadosTela = new System.Windows.Forms.Timer(this.components);
             this.btnJogar = new System.Windows.Forms.Panel();
@@ -126,6 +127,7 @@
             // grpBoxAcoes
             // 
             this.grpBoxAcoes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(140)))));
+            this.grpBoxAcoes.Controls.Add(this.rdAvancoInicial);
             this.grpBoxAcoes.Controls.Add(this.rdBtnRetornarPirata);
             this.grpBoxAcoes.Controls.Add(this.rdBtnPularVez);
             this.grpBoxAcoes.Controls.Add(this.rdBtnAvancarPirata);
@@ -135,6 +137,17 @@
             this.grpBoxAcoes.TabIndex = 0;
             this.grpBoxAcoes.TabStop = false;
             this.grpBoxAcoes.Text = "Acao";
+            // 
+            // rdAvancoInicial
+            // 
+            this.rdAvancoInicial.AutoSize = true;
+            this.rdAvancoInicial.Location = new System.Drawing.Point(6, 91);
+            this.rdAvancoInicial.Name = "rdAvancoInicial";
+            this.rdAvancoInicial.Size = new System.Drawing.Size(95, 17);
+            this.rdAvancoInicial.TabIndex = 12;
+            this.rdAvancoInicial.TabStop = true;
+            this.rdAvancoInicial.Text = "Retornar pirata";
+            this.rdAvancoInicial.UseVisualStyleBackColor = true;
             // 
             // TimerAttViewMenus
             // 
@@ -198,5 +211,6 @@
         private System.Windows.Forms.Timer TimerAttViewMenus;
         private System.Windows.Forms.Timer TimerAttDadosTela;
         private System.Windows.Forms.Panel btnJogar;
+        private System.Windows.Forms.RadioButton rdAvancoInicial;
     }
 }

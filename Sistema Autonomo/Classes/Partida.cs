@@ -14,36 +14,50 @@ namespace Sistema_Autonomo.Classes
         private List<string> jogadorDaRodada;
         private List<string> historicoPartida;
         private List<string> listaJogadores;
-        private List<int> casasLivres;
+        private List<CasaTabuleiro> casasLivresParaAvancar;
+
         public Partida() {
         
             tabuleiro = new Tabuleiro();
-            casasLivres = new List<int> { };
+            casasLivresParaAvancar = new List<CasaTabuleiro> { };
         }
 
         internal Tabuleiro Tabuleiro { get => tabuleiro; set => tabuleiro = value; }
         public List<string> JogadorDaRodada { get => jogadorDaRodada; set => jogadorDaRodada = value; }
         public List<string> HistoricoPartida { get => historicoPartida; set => historicoPartida = value; }
         public List<string> ListaJogadores { get => listaJogadores; set => listaJogadores = value; }
-        public List<int> CasasLivres { get => casasLivres; set => casasLivres = value; }
+        public List<CasaTabuleiro> CasasLivresParaAvancar { get => casasLivresParaAvancar; set => casasLivresParaAvancar = value; }
 
-        public void AtualizaCasasLivres()
+        public void AtualizaCasasLivresParaAvancar()
         {
-            casasLivres.Clear();
+            casasLivresParaAvancar.Clear();
 
-            this.tabuleiro.PiratasTabuleiro.ForEach(pirata => { 
-            if(pirata.IdJogador == 0 && !casasLivres.Contains(pirata.NumeroDaCasa))
+            this.tabuleiro.CasasDoTabuleiro.ForEach(casa => {
+
+                int piratasLivres = 0;
+
+                if (!casasLivresParaAvancar.Contains(casa))
                 {
-                    casasLivres.Add(pirata.NumeroDaCasa);
+                    foreach (Pirata pirata in casa.PiratasDaCasa)
+                    {
+                        if (pirata.IdJogador != 0)
+                        {
+                            piratasLivres++;
+                            break;
+                        }
+                    }
+
+                    if(piratasLivres == 0 && casa.NumeroCasa != 0 && casa.NumeroCasa != 37)
+                    {
+                        casasLivresParaAvancar.Add(casa);
+                    }
                 }
             });
         }
-
         public void AtualizaJogadorRodada()
         {
             jogadorDaRodada =  Utils.transformaEmLista(Jogo.VerificarVez(this.idPartida));
         }
-
         public bool verificaVezJogador(int id)
         {
             string [] retorno = Utils.transformaEmLista(Jogo.VerificarVez(this.idPartida)).First().Split(',');

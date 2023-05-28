@@ -7,16 +7,26 @@ using System.Windows.Forms;
 
 namespace Sistema_Autonomo.Classes
 {
-    internal class CasaTabuleiro : Panel
+    public class CasaTabuleiro : Panel
     {
-        int numeroCasa;
-        List<Pirata> piratasDaCasa;
+        private int numeroCasa;
+        private List<Pirata> piratasDaCasa;
+        private string simbolo;
+
         public CasaTabuleiro(int numeroCasa)
         {
             this.NumeroCasa = numeroCasa;
-            piratasDaCasa = new List<Pirata>();
+            this.piratasDaCasa = new List<Pirata>();
+            this.simbolo = "";
+        }
+        public CasaTabuleiro(int numeroCasa, string simbolo)
+        {
+            this.NumeroCasa = numeroCasa;
+            this.piratasDaCasa = new List<Pirata>();
+            this.simbolo = simbolo;
         }
         public int NumeroCasa { get => numeroCasa; private set => numeroCasa = value; }
+        public string Simbolo { get => simbolo; set => simbolo = value; }
         internal List<Pirata> PiratasDaCasa { get => piratasDaCasa; set => piratasDaCasa = value; }
     }
 }

@@ -1,4 +1,5 @@
-﻿    using System;
+﻿using CartagenaServer;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Sistema_Autonomo.Classes
 {
-    internal class Tabuleiro
+    public class Tabuleiro
     {
         private int posicaoX, posicaoY;
         int margemY = 10, margemX = 10;
@@ -31,36 +32,77 @@ namespace Sistema_Autonomo.Classes
 
         private void CriaPiratasNaCasa(CasaTabuleiro casa)
         {
-            for (int i = 0; i < 3; i++)
+            if (casa.NumeroCasa == 37)
             {
-                Pirata pirata = new Pirata();
-                pirata.BackgroundImageLayout = ImageLayout.Stretch;
-                pirata.Width = 20;
-                pirata.Height = 20;
-                if (i == 0)
+                for (int i = 0; i < 6; i++)
                 {
-                    pirata.Location = new Point(20, casa.Height - 40);
-                }
-                else if (i == 1)
-                {
-                    pirata.Location = new Point(40, 20);
-                }
-                else if (i == 2)
-                {
-                    pirata.Location = new Point(casa.Width - 40, casa.Height - 40);
-                }
+                    Pirata pirata = new Pirata();
+                    pirata.BackgroundImageLayout = ImageLayout.Stretch;
+                    pirata.Width = 20;
+                    pirata.Height = 20;
+                    if ((i%2) == 0)
+                    {
+                        pirata.Location = new Point(20, casa.Height - 40);
+                    }
+                    else if ((i % 2) == 1)
+                    {
+                        pirata.Location = new Point(40, 20);
+                    }
+                    else if ((i % 2) == 2)
+                    {
+                        pirata.Location = new Point(casa.Width - 40, casa.Height - 40);
+                    }
 
-                casa.PiratasDaCasa.Add(pirata);
-                pirata.NumeroDaCasa = casa.NumeroCasa;
-                pirata.BringToFront();
-                pirata.Visible = false;
-                piratasTabuleiro.Add(pirata);
-                casa.Controls.Add(pirata);
+                    casa.PiratasDaCasa.Add(pirata);
+                    pirata.NumeroDaCasa = casa.NumeroCasa;
+                    pirata.BringToFront();
+                    pirata.Visible = false;
+                    piratasTabuleiro.Add(pirata);
+                    casa.Controls.Add(pirata);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 3; i++)
+                {
+                    Pirata pirata = new Pirata();
+                    pirata.BackgroundImageLayout = ImageLayout.Stretch;
+                    pirata.Width = 20;
+                    pirata.Height = 20;
+                    if (i == 0)
+                    {
+                        pirata.Location = new Point(20, casa.Height - 40);
+                    }
+                    else if (i == 1)
+                    {
+                        pirata.Location = new Point(40, 20);
+                    }
+                    else if (i == 2)
+                    {
+                        pirata.Location = new Point(casa.Width - 40, casa.Height - 40);
+                    }
+
+                    casa.PiratasDaCasa.Add(pirata);
+                    pirata.NumeroDaCasa = casa.NumeroCasa;
+                    pirata.BringToFront();
+                    pirata.Visible = false;
+                    piratasTabuleiro.Add(pirata);
+                    casa.Controls.Add(pirata);
+                }
             }
         }
         private CasaTabuleiro CriaCasa(int id)
         {
             CasaTabuleiro casa = new CasaTabuleiro(id);
+            casa.BackgroundImageLayout = ImageLayout.Stretch;
+            casa.Width = 100;
+            casa.Height = 100;
+            CriaPiratasNaCasa(casa);
+            return casa;
+        }
+        private CasaTabuleiro CriaCasa(int id, string simbolo)
+        {
+            CasaTabuleiro casa = new CasaTabuleiro(id, simbolo);
             casa.BackgroundImageLayout = ImageLayout.Stretch;
             casa.Width = 100;
             casa.Height = 100;
@@ -74,12 +116,20 @@ namespace Sistema_Autonomo.Classes
             foreach (string item in ListaTabuleiro)
             {
                 string[] valores = item.Split(',');
+                CasaTabuleiro novaCasa;
 
-                CasaTabuleiro novaCasa = CriaCasa(id);
+                if (valores[1] == " ")
+                {
+                    novaCasa = CriaCasa(id);
+                }
+                else
+                {
+                    novaCasa = CriaCasa(id, valores[1]);
+                }
 
                 if (valores[1] == "T")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.TRICORNIO; 
+                    novaCasa.BackgroundImage = Properties.Resources.TRICORNIO;
                 }
                 else if (valores[1] == "E")
                 {
@@ -125,7 +175,7 @@ namespace Sistema_Autonomo.Classes
                 {
                     CasasDoTabuleiro[i].Top = margemY + (y * CasasDoTabuleiro[i].Width);
                     CasasDoTabuleiro[i].Left = margemX + (x * CasasDoTabuleiro[i].Width);
-                        
+
                     if ((margemX + ((x + 1) * CasasDoTabuleiro[i].Width) < pnlTabuleiro.Width - margemX))
                     {
                         x++;
@@ -179,6 +229,78 @@ namespace Sistema_Autonomo.Classes
         {
             DefineSimbolos();
             DefinePosicoes(pnlTabuleiro);
+        }
+        public void AtualizaPiratasNoMapa(Partida partida)
+        {
+            List<string> diferencaHistorico = Utils.transformaEmLista(Jogo.ExibirHistorico(partida.idPartida));
+
+            foreach (var historicoItem in diferencaHistorico)
+            {
+                if (!partida.HistoricoPartida.Contains(historicoItem))
+                {
+                    string[] dados = historicoItem.Split(',');
+
+                    if (dados[2] == "" && dados[3] == "")
+                    {
+                        continue;
+                    }
+                    else if (dados[3] != "")
+                    {
+                        int casaDeleta = int.Parse(dados[3]);
+                        int casaAtribui = int.Parse(dados[4]);
+
+                        foreach (var pirata in partida.Tabuleiro.CasasDoTabuleiro[casaDeleta].PiratasDaCasa)
+                        {
+                            if (pirata.IdJogador == int.Parse(dados[0]))
+                            {
+                                pirata.IdJogador = 0;
+                                pirata.CorPirata = null;
+                                pirata.Visible = false;
+                                pirata.Simbolo = "";
+                                break;
+                            }
+                        }
+
+                        foreach (var pirata in partida.Tabuleiro.CasasDoTabuleiro[casaAtribui].PiratasDaCasa)
+                        {
+                            if (pirata.IdJogador == 0)
+                            {
+                                pirata.IdJogador = int.Parse(dados[0]);
+                                string[] dadosJogador = partida.ListaJogadores.Find(jogador => jogador.StartsWith(dados[0])).Split(',');
+                                pirata.CorPirata = dadosJogador[2];
+                                pirata.Simbolo = partida.Tabuleiro.CasasDoTabuleiro[casaAtribui].Simbolo;
+                                DefineCorDoPirata(pirata);
+                                pirata.Visible = true;
+                                break;
+                            }
+                        }
+                    }
+                    partida.HistoricoPartida.Add(historicoItem);
+                }
+            }
+        }
+        private void DefineCorDoPirata(Pirata pirata)
+        {
+            if (pirata.CorPirata == "Marrom")
+            {
+                pirata.BackgroundImage = Properties.Resources.MARROM;
+            }
+            else if (pirata.CorPirata == "Vermelho")
+            {
+                pirata.BackgroundImage = Properties.Resources.VERMELHO;
+            }
+            else if (pirata.CorPirata == "Amarelo")
+            {
+                pirata.BackgroundImage = Properties.Resources.AMARELO;
+            }
+            else if (pirata.CorPirata == "Verde")
+            {
+                pirata.BackgroundImage = Properties.Resources.VERDE;
+            }
+            else if (pirata.CorPirata == "Azul")
+            {
+                pirata.BackgroundImage = Properties.Resources.AZUL;
+            }
         }
     }
 }
