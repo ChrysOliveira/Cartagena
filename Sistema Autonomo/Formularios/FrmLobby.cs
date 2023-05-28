@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace Sistema_Autonomo.Formularios
 {
-    public partial class FrmLobby : FrmModelo
+    public partial class FrmLobby : Form
     {
         Partida partida;
         Jogador jogador;
@@ -21,6 +21,7 @@ namespace Sistema_Autonomo.Formularios
             InitializeComponent();
             this.Partida = partida;
             this.Jogador = jogador;
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         public Partida Partida { get => partida; set => partida = value; }
@@ -28,6 +29,7 @@ namespace Sistema_Autonomo.Formularios
 
         private void FrmLobby_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(1400, 800);
             MostraInformacoesJogador();
             ListaJogadores();
         }
@@ -39,8 +41,9 @@ namespace Sistema_Autonomo.Formularios
         }
         private void MostraInformacoesJogador()
         {
-            lblIdJogador.Text += jogador.IdJogador.ToString();
-            lblCorJogador.Text += jogador.CorJogador;
+            lblNomeJogador.Text = jogador.NomeJogador;
+            lblIdJogador.Text = jogador.IdJogador.ToString();
+            lblCorJogador.Text = jogador.CorJogador;
 
             if (jogador.CorJogador == "Marrom")
             {
@@ -86,6 +89,14 @@ namespace Sistema_Autonomo.Formularios
                     lsvListaJogadoresPartida.Items.Add(item);
                 }
             }
+        }
+        private void btnIniciarPartida_MouseDown(object sender, MouseEventArgs e)
+        {
+            btnIniciarPartida.BackgroundImage = Properties.Resources.BOTAO_INICIARPARTIDA_BRANCO;
+        }
+        private void btnIniciarPartida_MouseUp(object sender, MouseEventArgs e)
+        {
+            btnIniciarPartida.BackgroundImage = Properties.Resources.BOTAO_INICIARPARTIDA_PRETO;
         }
     }
 

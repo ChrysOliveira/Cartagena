@@ -13,39 +13,46 @@ using System.Windows.Forms;
 
 namespace Sistema_Autonomo.Formularios
 {
-    public partial class FrmInGame : FrmModelo
+    public partial class FrmInGame : Form
     {
-        Partida partida;
-        Jogador jogador;
-        Tabuleiro tabuleiro;
-
-        int margemY = 10, margemX = 10;
-
-        public Partida Partida { get => partida; set => partida = value; }
-        public Jogador Jogador { get => jogador; set => jogador = value; }
+        private Partida partida;
+        private Jogador jogador;
+        
         public FrmInGame(Partida partida, Jogador jogador)
         {
             InitializeComponent();
             this.Partida = partida;
             this.Jogador = jogador;
-            tabuleiro= new Tabuleiro();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
+
+        public Partida Partida { get => partida; set => partida = value; }
+        public Jogador Jogador { get => jogador; set => jogador = value; }
+
         private void FrmInGame_Load(object sender, EventArgs e)
         {
+            this.Size = new Size(1400, 800);
+
             Partida.Tabuleiro.ListaTabuleiro = Utils.transformaEmLista(Jogo.ExibirTabuleiro(Partida.idPartida));
             partida.HistoricoPartida = Utils.transformaEmLista(Jogo.ExibirHistorico(partida.idPartida));
-            
-            tabuleiro.CriaMapa(pnlTabuleiro); //agora é uma função de tabuleiro e precisa passar o parametro do painel 
+
+            partida.Tabuleiro.CriaMapa(pnlTabuleiro);
 
             AtualizaJogadorRodada();
             AtualizaListaPiratas();
             AtualizaListaCartas();
-            
+
+            if (partida.verificaVezJogador(jogador.IdJogador) == true)
+            {
+                partida.AtualizaCasasLivres();
+            }
+
         }
-        
         private void AtualizaJogadorRodada()
         {
-            string[] retorno = Utils.transformaEmLista(Jogo.VerificarVez(partida.idPartida)).First().Split(',');
+            partida.AtualizaJogadorRodada();
+
+            string[] retorno = partida.JogadorDaRodada.First().Split(',');
 
             lblDadosJogadorRodada.Text = $"Status partida: {retorno[0]} \nJogador da vez: {retorno[1]} \nNº da jogada: {retorno[2]}";
 
@@ -54,7 +61,6 @@ namespace Sistema_Autonomo.Formularios
                 lsbPiratasJogadorVez.Enabled = false;
                 lsbCartasJogadorVez.Enabled = false;
             }
-
         }
         private void AtualizaListaPiratas()
         {
@@ -107,10 +113,8 @@ namespace Sistema_Autonomo.Formularios
         {
 
             List<string> diferencaHistorico = Utils.transformaEmLista(Jogo.ExibirHistorico(partida.idPartida));
-            List<string> Ppiratas =
-            RetornoPiratas();  
 
-            foreach (var historicoItem in Ppiratas)
+            foreach (var historicoItem in diferencaHistorico)
             {
                 if (!partida.HistoricoPartida.Contains(historicoItem))
                 {
@@ -121,81 +125,58 @@ namespace Sistema_Autonomo.Formularios
                         continue;
                     }
                     else if (dados[3] != "")
-                        {
+                    {
                         int casaDeleta = int.Parse(dados[3]);
                         int casaAtribui = int.Parse(dados[4]);
 
                         foreach (var pirata in partida.Tabuleiro.CasasDoTabuleiro[casaDeleta].PiratasDaCasa)
+                        {
+                            if (pirata.IdJogador == int.Parse(dados[0]))
                             {
-                                    if (pirata.IdJogador == int.Parse(dados[0]))
-                                    {
-                                        pirata.IdJogador = 0;
-                                        pirata.CorPirata = null;
-                                        pirata.Visible = false;
+                                pirata.IdJogador = 0;
+                                pirata.CorPirata = null;
+                                pirata.Visible = false;
                                 break;
-                                    }
                             }
+                        }
 
                         foreach (var pirata in partida.Tabuleiro.CasasDoTabuleiro[casaAtribui].PiratasDaCasa)
-                                {
-                                    if (pirata.IdJogador == 0)
-                                    {
-                                        pirata.IdJogador = int.Parse(dados[0]);
-                                        string[] dadosJogador = partida.ListaJogadores.Find(jogador => jogador.StartsWith(dados[0])).Split(',');
-                                        pirata.CorPirata = dadosJogador[2];
-                                        DefineCorDoPirata(pirata);
-                                        pirata.Visible = true;
-                                        break;
-                                    }
-                                }
+                        {
+                            if (pirata.IdJogador == 0)
+                            {
+                                pirata.IdJogador = int.Parse(dados[0]);
+                                string[] dadosJogador = partida.ListaJogadores.Find(jogador => jogador.StartsWith(dados[0])).Split(',');
+                                pirata.CorPirata = dadosJogador[2];
+                                DefineCorDoPirata(pirata);
+                                pirata.Visible = true;
+                                break;
                             }
+                        }
+                    }
                     partida.HistoricoPartida.Add(historicoItem);
                 }
             }
         }
-
-        public List<string> RetornoPiratas()
-        {
-            List<string> dados = new List<string>();
-            dados = Utils.transformaEmLista(Jogo.VerificarVez(partida.idPartida));
-                                        //eliminações do retorno verificar vez
-            dados.Remove(dados[0]);     //status da partida
-            dados.Remove(dados[1]);     //id jogador vez
-            dados.Remove(dados[2]);     //jogada atual jogador vez
-            return dados;   //situação do tabuleiro [posição, jogador, nº de piratas na casa]
-
-            //dando erro no ponto de interrupção, nao consigo acessar esse metodo
-
-            
-        }
-
-
         private void btnJogar_Click(object sender, EventArgs e)
         {
             if (rdBtnPularVez.Checked)
             {
-                //Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador);
-                jogador.Pular();
+                jogador.pularJogada();
             }
             else if (rdBtnRetornarPirata.Checked)
             {
                 int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
-
-                Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador, posicao);
-                //jogador.Volt_Pirata(IdPirata, NovaCasa, novoSimbolo); preciso saber o pirata escolhido, a nova casa e simbolo 
+                jogador.retornarPirata(posicao);
             }
             else if (rdBtnAvancarPirata.Checked)
             {
                 int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
                 string carta = lsbCartasJogadorVez.Text.Split(',').First().Substring(9);
-                Jogo.Jogar(jogador.IdJogador, jogador.SenhaJogador, posicao, carta);
-                //jogador.Av_Pirata(IdPirata, carta, posicao); preciso saber o pirata escolhido a nova casa e o novo simbolo
+                jogador.avancarPirata(posicao, carta);
             }
-            
             AtualizaJogadorRodada();
             AtualizaListaCartas();
             AtualizaListaPiratas();
-            
         }
         private void TimerAttViewMenus_Tick(object sender, EventArgs e)
         {
@@ -217,6 +198,15 @@ namespace Sistema_Autonomo.Formularios
         private void TimerAttDadosTela_Tick(object sender, EventArgs e)
         {
             AtualizaPiratasNoMapa();
+        }
+        private void btnJogar_MouseDown(object sender, MouseEventArgs e)
+        {
+            btnJogar.BackgroundImage = Properties.Resources.BOTAO_JOGAR_BRANCO;
+        }
+        private void btnJogar_MouseUp(object sender, MouseEventArgs e)
+        {
+            btnJogar.BackgroundImage = Properties.Resources.BOTAO_JOGAR_PRETO;
+
         }
     }
 }

@@ -29,19 +29,5 @@ namespace Sistema_Autonomo.Classes
         public int NumeroDaCasa { get => numeroDaCasa; set => numeroDaCasa = value; }
 
         public int PosicaoNaLista { get => posicaoNaLista; }
-
-
-        public void AvancaPirata(int casa, string simbolo)
-        {
-            this.NumeroDaCasa = casa;
-            this.simbolo = simbolo;
-        }
-
-        public void VoltarPirata(int casa, string simbolo)
-        {
-            this.NumeroDaCasa = casa;
-            this.simbolo = simbolo;
-
-        }
     }
 }

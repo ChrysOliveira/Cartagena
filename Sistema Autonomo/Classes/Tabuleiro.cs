@@ -11,32 +11,10 @@ namespace Sistema_Autonomo.Classes
     internal class Tabuleiro
     {
         private int posicaoX, posicaoY;
-        //tamanho do paineol no FrmInGame
-        static int width = 1120;
-        static int heigth = 737;
-
+        int margemY = 10, margemX = 10;
         private List<string> listaTabuleiro;
         private List<CasaTabuleiro> casasDoTabuleiro;
         private List<Pirata> piratasTabuleiro;
-
-        int margemY = 10, margemX = 10;
-
-        //to querendo salvar algumas prioridades para poder escolher a jogada
-        /*marcar todas as casas que podem comprar cartas
-         * as casas que podem comprar 2 tem prioridade maior
-         * marcar o pirata e simbolo que consegue andar mais que 12 casa
-         * caso nenhum pirata consiga, procurar mais que 8 casas(ainda to pensando melhor sobre isso)
-         * se nao conseguir procurar melhor jogada para comprar
-         * ao avançar nunca deixar a casa que avançei com 2 piratas de preferencia(ainda nao sei os detalhes de como fazer isso)
-         * 
-         * 
-         * jogadas para comprar:
-         * priorizar bloquear o proximo jogador da vez de comprar duas cartas
-         * bloquear é a prioridade maior
-         * se nao encontar voltar 2 piratas pra mesma casa
-         * (ver 3 piratas em sequencia, volta o do meio e de pois volta o avançado)
-         */
-
 
         public Tabuleiro()
         {
@@ -93,23 +71,23 @@ namespace Sistema_Autonomo.Classes
         {
             int id = 0;
 
-            foreach (string item in ListaTabuleiro)  //estava assim foreach (string item in Partida.Tabuleiro.ListaTabuleiro)
+            foreach (string item in ListaTabuleiro)
             {
                 string[] valores = item.Split(',');
 
                 CasaTabuleiro novaCasa = CriaCasa(id);
 
-                if (valores[1] == "T")                                      
+                if (valores[1] == "T")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.TRICORNIO; //Tricornio
+                    novaCasa.BackgroundImage = Properties.Resources.TRICORNIO; 
                 }
                 else if (valores[1] == "E")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.ESQUELETO; //Esqueleto
+                    novaCasa.BackgroundImage = Properties.Resources.ESQUELETO;
                 }
                 else if (valores[1] == "F")
                 {
-                    novaCasa.BackgroundImage = Properties.Resources.FACA; //Faca
+                    novaCasa.BackgroundImage = Properties.Resources.ADAGA;
                 }
                 else if (valores[1] == "G")
                 {
@@ -143,12 +121,12 @@ namespace Sistema_Autonomo.Classes
 
             for (int i = 0; i < CasasDoTabuleiro.Count; i++)
             {
-                if ((margemX + (x * CasasDoTabuleiro[i].Width) < width - margemX) && direcao == 0)
+                if ((margemX + (x * CasasDoTabuleiro[i].Width) < pnlTabuleiro.Width - margemX) && direcao == 0)
                 {
                     CasasDoTabuleiro[i].Top = margemY + (y * CasasDoTabuleiro[i].Width);
                     CasasDoTabuleiro[i].Left = margemX + (x * CasasDoTabuleiro[i].Width);
-
-                    if ((margemX + ((x + 1) * piratasTabuleiro[i].Width) < width - margemX))
+                        
+                    if ((margemX + ((x + 1) * CasasDoTabuleiro[i].Width) < pnlTabuleiro.Width - margemX))
                     {
                         x++;
                     }
@@ -172,14 +150,14 @@ namespace Sistema_Autonomo.Classes
                         direcao = 0;
                         x++;
                     }
-                    else if ((margemX + (x * CasasDoTabuleiro[i].Width) < width - margemX) && contaDescida == 2)
+                    else if ((margemX + (x * CasasDoTabuleiro[i].Width) < pnlTabuleiro.Width - margemX) && contaDescida == 2)
                     {
                         direcao = 1;
                     }
                 }
                 else if ((margemX + (x * CasasDoTabuleiro[i].Width) >= margemX) && direcao == 1)
                 {
-                    CasasDoTabuleiro[i].Top = margemY + (y * piratasTabuleiro[i].Width);
+                    CasasDoTabuleiro[i].Top = margemY + (y * CasasDoTabuleiro[i].Width);
 
                     if ((margemX + ((x - 1) * CasasDoTabuleiro[i].Width) > margemX))
                     {

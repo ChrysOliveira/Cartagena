@@ -40,23 +40,6 @@ C:\Users\vi-ga\OneDrive\Documentos\GitHub\Cartagena\Sistema Autonomo\obj\Debug\S
 C:\Users\vi-ga\OneDrive\Documentos\GitHub\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CopyComplete
 C:\Users\vi-ga\OneDrive\Documentos\GitHub\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.exe
 C:\Users\vi-ga\OneDrive\Documentos\GitHub\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.pdb
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.AssemblyReference.cache
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.SuggestedBindingRedirects.cache
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Formularios.FrmInGame.resources
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Formularios.FrmInicial.resources
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Formularios.FrmLobby.resources
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Formularios.FrmModelo.resources
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Properties.Resources.resources
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.GenerateResource.cache
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CoreCompileInputs.cache
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\Sistema Autonomo.exe.config
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\Sistema Autonomo.exe
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\Sistema Autonomo.pdb
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\CartagenaServer.dll
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\CartagenaServer.xml
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CopyComplete
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.exe
-C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.pdb
 C:\Users\cit\source\repos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.AssemblyReference.cache
 C:\Users\cit\source\repos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.SuggestedBindingRedirects.cache
 C:\Users\cit\source\repos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Formularios.FrmInGame.resources
@@ -68,3 +51,20 @@ C:\Users\cit\source\repos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.
 C:\Users\cit\source\repos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CoreCompileInputs.cache
 C:\Users\cit\source\repos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.exe
 C:\Users\cit\source\repos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.pdb
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\Sistema Autonomo.exe.config
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\Sistema Autonomo.exe
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\Sistema Autonomo.pdb
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\CartagenaServer.dll
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Debug\CartagenaServer.xml
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.AssemblyReference.cache
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.SuggestedBindingRedirects.cache
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Formularios.FrmAbertura.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Formularios.FrmInGame.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Formularios.FrmPartidas.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Formularios.FrmLobby.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema_Autonomo.Properties.Resources.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.GenerateResource.cache
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CoreCompileInputs.cache
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.csproj.CopyComplete
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.exe
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Debug\Sistema Autonomo.pdb

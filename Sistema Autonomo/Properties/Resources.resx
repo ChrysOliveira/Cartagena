@@ -118,43 +118,76 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="ADAGA" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\TABULEIRO\ADAGA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="AMARELO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\AMARELO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\AMARELO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AZUL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\AZUL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\AZUL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="BARCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\BARCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\BARCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAOENTRARBRANCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAOENTRARBRANCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAOENTRARPRETO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAOENTRARPRETO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAO_CRIAR_BRANCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAO_CRIAR_BRANCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAO_CRIAR_PRETO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAO_CRIAR_PRETO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAO_ENTRAR_BRANCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAO_ENTRAR_BRANCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAO_ENTRAR_PRETO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAO_ENTRAR_PRETO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAO_INICIARPARTIDA_BRANCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAO_INICIARPARTIDA_BRANCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAO_INICIARPARTIDA_PRETO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAO_INICIARPARTIDA_PRETO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAO_JOGAR_BRANCO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAO_JOGAR_BRANCO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BOTAO_JOGAR_PRETO" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\BOTAO_JOGAR_PRETO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CHAVE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\CHAVE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\CHAVE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ESQUELETO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imagens\ESQUELETO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FACA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imagens\FACA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\ESQUELETO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="FUNDO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\FUNDO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\FUNDO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="GARRAFA" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\GARRAFA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\GARRAFA.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MARROM" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\MARROM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\MARROM.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="PISTOLAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\PISTOLAS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\PISTOLAS.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="TELA_INICIAL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Imagens\TELA INICIAL.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="TRICORNIO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\imagens\TRICORNIO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\TRICORNIO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VERDE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\VERDE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\VERDE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="VERMELHO" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Imagens\VERMELHO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Imagens\TABULEIRO\VERMELHO.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
