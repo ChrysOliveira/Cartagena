@@ -36,6 +36,7 @@
             this.btnIniciarPartida = new System.Windows.Forms.Panel();
             this.lblIdJogador = new System.Windows.Forms.Label();
             this.lblCorJogador = new System.Windows.Forms.Label();
+            this.chckBoxJogarAutomatico = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // lblNomeJogador
@@ -104,6 +105,19 @@
             this.lblCorJogador.TabIndex = 32;
             this.lblCorJogador.Text = "Cor";
             // 
+            // chckBoxJogarAutomatico
+            // 
+            this.chckBoxJogarAutomatico.AutoSize = true;
+            this.chckBoxJogarAutomatico.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(140)))));
+            this.chckBoxJogarAutomatico.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chckBoxJogarAutomatico.ForeColor = System.Drawing.Color.Black;
+            this.chckBoxJogarAutomatico.Location = new System.Drawing.Point(374, 651);
+            this.chckBoxJogarAutomatico.Name = "chckBoxJogarAutomatico";
+            this.chckBoxJogarAutomatico.Size = new System.Drawing.Size(146, 20);
+            this.chckBoxJogarAutomatico.TabIndex = 33;
+            this.chckBoxJogarAutomatico.Text = "Jogar automatico";
+            this.chckBoxJogarAutomatico.UseVisualStyleBackColor = false;
+            // 
             // FrmLobby
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -111,6 +125,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1384, 761);
+            this.Controls.Add(this.chckBoxJogarAutomatico);
             this.Controls.Add(this.lblCorJogador);
             this.Controls.Add(this.lblIdJogador);
             this.Controls.Add(this.btnIniciarPartida);
@@ -132,5 +147,6 @@
         private System.Windows.Forms.Panel btnIniciarPartida;
         private System.Windows.Forms.Label lblIdJogador;
         private System.Windows.Forms.Label lblCorJogador;
+        private System.Windows.Forms.CheckBox chckBoxJogarAutomatico;
     }
 }

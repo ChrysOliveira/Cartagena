@@ -38,10 +38,10 @@
             this.rdBtnAvancarPirata = new System.Windows.Forms.RadioButton();
             this.rdBtnRetornarPirata = new System.Windows.Forms.RadioButton();
             this.grpBoxAcoes = new System.Windows.Forms.GroupBox();
-            this.rdAvancoInicial = new System.Windows.Forms.RadioButton();
             this.TimerAttViewMenus = new System.Windows.Forms.Timer(this.components);
             this.TimerAttDadosTela = new System.Windows.Forms.Timer(this.components);
             this.btnJogar = new System.Windows.Forms.Panel();
+            this.TimerRealizaJogada = new System.Windows.Forms.Timer(this.components);
             this.grpBoxAcoes.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,26 +69,24 @@
             // 
             this.lsbPiratasJogadorVez.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(96)))), ((int)(((byte)(56)))));
             this.lsbPiratasJogadorVez.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lsbPiratasJogadorVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsbPiratasJogadorVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsbPiratasJogadorVez.ForeColor = System.Drawing.Color.White;
             this.lsbPiratasJogadorVez.FormattingEnabled = true;
-            this.lsbPiratasJogadorVez.ItemHeight = 16;
             this.lsbPiratasJogadorVez.Location = new System.Drawing.Point(184, 225);
             this.lsbPiratasJogadorVez.Name = "lsbPiratasJogadorVez";
-            this.lsbPiratasJogadorVez.Size = new System.Drawing.Size(140, 128);
+            this.lsbPiratasJogadorVez.Size = new System.Drawing.Size(140, 117);
             this.lsbPiratasJogadorVez.TabIndex = 6;
             // 
             // lsbCartasJogadorVez
             // 
             this.lsbCartasJogadorVez.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(144)))), ((int)(((byte)(96)))), ((int)(((byte)(56)))));
             this.lsbCartasJogadorVez.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lsbCartasJogadorVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lsbCartasJogadorVez.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lsbCartasJogadorVez.ForeColor = System.Drawing.Color.White;
             this.lsbCartasJogadorVez.FormattingEnabled = true;
-            this.lsbCartasJogadorVez.ItemHeight = 16;
             this.lsbCartasJogadorVez.Location = new System.Drawing.Point(18, 225);
             this.lsbCartasJogadorVez.Name = "lsbCartasJogadorVez";
-            this.lsbCartasJogadorVez.Size = new System.Drawing.Size(140, 128);
+            this.lsbCartasJogadorVez.Size = new System.Drawing.Size(140, 117);
             this.lsbCartasJogadorVez.TabIndex = 7;
             // 
             // rdBtnPularVez
@@ -127,7 +125,6 @@
             // grpBoxAcoes
             // 
             this.grpBoxAcoes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(231)))), ((int)(((byte)(140)))));
-            this.grpBoxAcoes.Controls.Add(this.rdAvancoInicial);
             this.grpBoxAcoes.Controls.Add(this.rdBtnRetornarPirata);
             this.grpBoxAcoes.Controls.Add(this.rdBtnPularVez);
             this.grpBoxAcoes.Controls.Add(this.rdBtnAvancarPirata);
@@ -137,17 +134,6 @@
             this.grpBoxAcoes.TabIndex = 0;
             this.grpBoxAcoes.TabStop = false;
             this.grpBoxAcoes.Text = "Acao";
-            // 
-            // rdAvancoInicial
-            // 
-            this.rdAvancoInicial.AutoSize = true;
-            this.rdAvancoInicial.Location = new System.Drawing.Point(6, 91);
-            this.rdAvancoInicial.Name = "rdAvancoInicial";
-            this.rdAvancoInicial.Size = new System.Drawing.Size(95, 17);
-            this.rdAvancoInicial.TabIndex = 12;
-            this.rdAvancoInicial.TabStop = true;
-            this.rdAvancoInicial.Text = "Retornar pirata";
-            this.rdAvancoInicial.UseVisualStyleBackColor = true;
             // 
             // TimerAttViewMenus
             // 
@@ -173,6 +159,12 @@
             this.btnJogar.Click += new System.EventHandler(this.btnJogar_Click);
             this.btnJogar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnJogar_MouseDown);
             this.btnJogar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnJogar_MouseUp);
+            // 
+            // TimerRealizaJogada
+            // 
+            this.TimerRealizaJogada.Enabled = true;
+            this.TimerRealizaJogada.Interval = 1000;
+            this.TimerRealizaJogada.Tick += new System.EventHandler(this.TimerRealizaJogada_Tick);
             // 
             // FrmInGame
             // 
@@ -211,6 +203,6 @@
         private System.Windows.Forms.Timer TimerAttViewMenus;
         private System.Windows.Forms.Timer TimerAttDadosTela;
         private System.Windows.Forms.Panel btnJogar;
-        private System.Windows.Forms.RadioButton rdAvancoInicial;
+        private System.Windows.Forms.Timer TimerRealizaJogada;
     }
 }

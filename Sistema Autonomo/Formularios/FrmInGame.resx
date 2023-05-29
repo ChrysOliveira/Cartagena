@@ -121,13 +121,13 @@
     <value>17, 17</value>
   </metadata>
   <metadata name="TimerAttDadosTela.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>179, 17</value>
+    <value>165, 18</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="btnJogar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAUoAAABMCAYAAAALB/6sAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAB4pJREFUeF7t3b+PFGUcx/ErpUGwBIkklFBQQIImqJVSeVZgx1lgYgWolRaKWJpw
+        DQAACw0B7QfALAAAB4pJREFUeF7t3b+PFGUcx/ErpUGwBIkklFBQQIImqJVSeVZgx1lgYgWolRaKWJpw
         fwH8BYY/ABJ7mmu1orTkT1jvc2bO7335zDzPzN7d3s7zLl4JYed3Mu99dmZ2b2N768YCANCPUAJAAaEE
         gAJCCQAFhBIACgglABQQSgAoIJQAUEAoAaCAUAJAQXUoF//8DgCz4lrnEEoAzXKtcwglgGa51jmEEkCz
         XOscQgmgWa51DqEE0CzXOodQAmiWa51DKAE0y7XOIZQAmuVa5xBKAM1yrXMIJYBmudY5hBJAs1zrHEIJ
@@ -162,13 +162,16 @@
         oQSAAkIJAAWEEgAKCCUAFBBKABh0Y/Ev7hBVLC3iKkgAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="TimerRealizaJogada.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>310, 23</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>37</value>
   </metadata>
   <data name="$this.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAABXgAAAMgCAYAAACZBgqXAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAA/7JJREFUeF7s3Wd0FMmeJvz7cffLvjvvxzVn95zdbzPn7Lwz18zcueN35s7cuX6u
+        DAAACwwBP0AiyAAA/7JJREFUeF7s3Wd0FMmeJvz7cffLvjvvxzVn95zdbzPn7Lwz18zcueN35s7cuX6u
         a0dDN3TjvfdCIIuE96a7gcYKI0BIyIJAyHs8CO+NBA3dTXcjPW/8IzOqolJRUgkkNV39fPidzIqMjIzM
         KmUVT0dHfgdPq/Hiqhxl3wTfhH5LH7+p1zceuK59H7wfT162za/zM/JN/Xx+E/otffymXt944Lr2ffB+
         xNXff42Dvf1VEf2adVjaP/U895edVaFDLb360mZ3Kj1PAnS5vz1UXuGzy7qj2ghR5xMhsE31uW9Evu/6

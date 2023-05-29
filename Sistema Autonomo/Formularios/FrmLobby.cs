@@ -69,8 +69,13 @@ namespace Sistema_Autonomo.Formularios
         private void btnIniciarPartida_Click(object sender, EventArgs e)
         {
             Jogo.IniciarPartida(jogador.IdJogador, jogador.SenhaJogador);
+            bool automatico = false;
+            if (chckBoxJogarAutomatico.Checked)
+            {
+                automatico = true;
+            }
 
-            FrmInGame frmIngame = new FrmInGame(partida, jogador);
+            FrmInGame frmIngame = new FrmInGame(partida, jogador, automatico);
             this.Hide();
             TimerAttListaJogadores.Enabled = false;
             frmIngame.ShowDialog();

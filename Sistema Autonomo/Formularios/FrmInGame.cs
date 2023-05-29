@@ -17,14 +17,15 @@ namespace Sistema_Autonomo.Formularios
     {
         private Partida partida;
         private Jogador jogador;
+        private bool automatico;
 
-
-        public FrmInGame(Partida partida, Jogador jogador)
+        public FrmInGame(Partida partida, Jogador jogador, bool automatico)
         {
             InitializeComponent();
             this.Partida = partida;
             this.Jogador = jogador;
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.automatico = automatico;
         }
 
         public Partida Partida { get => partida; set => partida = value; }
@@ -88,57 +89,40 @@ namespace Sistema_Autonomo.Formularios
         }
         private void btnJogar_Click(object sender, EventArgs e)
         {
-
-            //if (rdBtnPularVez.Checked)
-            //{
-            //    jogador.pularJogada();
-            //}
-            //else if (rdBtnRetornarPirata.Checked)
-            //{
-            //    try
-            //    {
-            //        int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
-            //        jogador.retornarPirata(posicao);
-
-            //    }catch(ArgumentOutOfRangeException ex)
-            //    {
-            //        MessageBox.Show("Selecione uma posicao", "Problema ao retornar o pirata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        Console.WriteLine(ex);
-            //        return;
-            //    }
-            //}
-            //else if (rdBtnAvancarPirata.Checked)
-            //{
-            //    try
-            //    {
-            //        int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
-            //        string carta = lsbCartasJogadorVez.Text.Split(',').First().Substring(9);
-            //        jogador.avancarPirata(posicao, carta);
-            //    }
-            //    catch (ArgumentOutOfRangeException ex)
-            //    {
-            //        MessageBox.Show("Selecione uma carta e uma posicao", "Problema ao avancar o pirata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        Console.WriteLine(ex);
-            //        return;
-            //    }
-            //}
-
-            if (jogador.MeusPiratas.Count < 6)
+            if (rdBtnPularVez.Checked)
             {
-                jogador.avancoInicial(partida);
+                jogador.pularJogada(partida);
             }
-            else if (jogador.CartasNaMao.Count < 2)
+            else if (rdBtnRetornarPirata.Checked)
             {
-                jogador.realizaCompra(partida);
-                jogador.avancarPirataMaisAtrasado(partida);
-            } else
-            {
-                jogador.avancarPirataMaisAtrasado(partida);
-            }
+                try
+                {
+                    int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
+                    jogador.retornarPirata(posicao, partida);
 
-            AtualizaJogadorRodada();
-            AtualizaListaCartas();
-            AtualizaListaPiratas();
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    MessageBox.Show("Selecione uma posicao", "Problema ao retornar o pirata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine(ex);
+                    return;
+                }
+            }
+            else if (rdBtnAvancarPirata.Checked)
+            {
+                try
+                {
+                    int posicao = int.Parse(lsbPiratasJogadorVez.Text.Split(',').First().Substring(5));
+                    string carta = lsbCartasJogadorVez.Text.Split(',').First().Substring(9);
+                    jogador.avancarPirata(posicao, carta,partida);
+                }
+                catch (ArgumentOutOfRangeException ex)
+                {
+                    MessageBox.Show("Selecione uma carta e uma posicao", "Problema ao avancar o pirata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Console.WriteLine(ex);
+                    return;
+                }
+            }
         }
         private void TimerAttViewMenus_Tick(object sender, EventArgs e)
         {
@@ -173,6 +157,30 @@ namespace Sistema_Autonomo.Formularios
         {
             btnJogar.BackgroundImage = Properties.Resources.BOTAO_JOGAR_PRETO;
 
+        }
+        private void TimerRealizaJogada_Tick(object sender, EventArgs e)
+        {
+            if (partida.verificaVezJogador(jogador.IdJogador) && automatico == true)
+            {
+                if (jogador.MeusPiratas.Count < 6)
+                {
+                    jogador.avancoInicial(partida);
+                    AtualizaJogadorRodada();
+                }
+                else if (jogador.CartasNaMao.Count < 1)
+                {
+                    jogador.realizaCompra(partida);
+                    jogador.avancarPirataMaisAtrasado(partida);
+                    AtualizaJogadorRodada();
+                }
+                else
+                {
+                    jogador.avancarPirataMaisAtrasado(partida);
+                    AtualizaJogadorRodada();
+                }
+                AtualizaListaCartas();
+                AtualizaListaPiratas();
+            }
         }
     }
 }
