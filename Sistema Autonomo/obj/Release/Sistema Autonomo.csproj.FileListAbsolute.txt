@@ -1,0 +1,17 @@
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Release\Sistema Autonomo.exe.config
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Release\Sistema Autonomo.exe
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Release\Sistema Autonomo.pdb
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Release\CartagenaServer.dll
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\bin\Release\CartagenaServer.xml
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema Autonomo.csproj.AssemblyReference.cache
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema Autonomo.csproj.SuggestedBindingRedirects.cache
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema_Autonomo.Formularios.FrmAbertura.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema_Autonomo.Formularios.FrmInGame.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema_Autonomo.Formularios.FrmPartidas.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema_Autonomo.Formularios.FrmLobby.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema_Autonomo.Properties.Resources.resources
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema Autonomo.csproj.GenerateResource.cache
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema Autonomo.csproj.CoreCompileInputs.cache
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema Autonomo.csproj.CopyComplete
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema Autonomo.exe
+C:\Users\chrys\OneDrive\Documentos\Projetos\Cartagena\Sistema Autonomo\obj\Release\Sistema Autonomo.pdb

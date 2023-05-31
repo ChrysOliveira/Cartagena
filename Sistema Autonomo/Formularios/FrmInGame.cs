@@ -160,26 +160,33 @@ namespace Sistema_Autonomo.Formularios
         }
         private void TimerRealizaJogada_Tick(object sender, EventArgs e)
         {
+            string retorno = "";
             if (partida.verificaVezJogador(jogador.IdJogador) && automatico == true)
             {
                 if (jogador.MeusPiratas.Count < 6)
                 {
-                    jogador.avancoInicial(partida);
+                    retorno = jogador.avancoInicial(partida);
                     AtualizaJogadorRodada();
                 }
                 else if (jogador.CartasNaMao.Count < 1)
                 {
-                    jogador.realizaCompra(partida);
-                    jogador.avancarPirataMaisAtrasado(partida);
+                    retorno = jogador.realizaCompra(partida);
+                    retorno = jogador.avancarPirataMaisAtrasado(partida);
                     AtualizaJogadorRodada();
                 }
                 else
                 {
-                    jogador.avancarPirataMaisAtrasado(partida);
+                    retorno = jogador.avancarPirataMaisAtrasado(partida);
                     AtualizaJogadorRodada();
                 }
                 AtualizaListaCartas();
                 AtualizaListaPiratas();
+                if (retorno.StartsWith("ERRO:Partida não está em jogo"))
+                {
+                    MessageBox.Show(retorno, "Problema ao realizar jogada", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    TimerRealizaJogada.Stop();
+                    return;
+                }
             }
         }
     }

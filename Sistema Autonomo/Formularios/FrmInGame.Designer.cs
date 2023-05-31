@@ -163,7 +163,7 @@
             // TimerRealizaJogada
             // 
             this.TimerRealizaJogada.Enabled = true;
-            this.TimerRealizaJogada.Interval = 1000;
+            this.TimerRealizaJogada.Interval = 2000;
             this.TimerRealizaJogada.Tick += new System.EventHandler(this.TimerRealizaJogada_Tick);
             // 
             // FrmInGame

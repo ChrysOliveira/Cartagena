@@ -34,7 +34,7 @@ namespace Sistema_Autonomo.Classes
         {
             if (casa.NumeroCasa == 37)
             {
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < 30; i++)
                 {
                     Pirata pirata = new Pirata();
                     pirata.BackgroundImageLayout = ImageLayout.Stretch;

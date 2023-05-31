@@ -1,6 +1,7 @@
 ﻿using CartagenaServer;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,21 +37,23 @@ namespace Sistema_Autonomo.Classes
             this.AtualizarMeusPiratas(partida);
             this.AtualizarCartasNaMao();
         }
-        public void retornarPirata(int posicao, Partida partida)
+        public string retornarPirata(int posicao, Partida partida)
         {
-            Jogo.Jogar(this.idJogador, this.senhaJogador, posicao);
+            string retorno = Jogo.Jogar(this.idJogador, this.senhaJogador, posicao);
             partida.Tabuleiro.AtualizaPiratasNoMapa(partida);
             this.AtualizarMeusPiratas(partida);
             this.AtualizarCartasNaMao();
             partida.AtualizaCasasLivresParaAvancar();
+            return retorno;
         }
-        public void avancarPirata(int posicao, string carta, Partida partida)
+        public string avancarPirata(int posicao, string carta, Partida partida)
         {
-            Jogo.Jogar(this.idJogador, this.senhaJogador, posicao, carta);
+            string retonrno = Jogo.Jogar(this.idJogador, this.senhaJogador, posicao, carta);
             partida.Tabuleiro.AtualizaPiratasNoMapa(partida);
             this.AtualizarMeusPiratas(partida);
             this.AtualizarCartasNaMao();
             partida.AtualizaCasasLivresParaAvancar();
+            return retonrno;
         }
         public void AtualizarCartasNaMao()
         {
@@ -94,12 +97,13 @@ namespace Sistema_Autonomo.Classes
 
             return pirata;
         }
-        public void avancoInicial(Partida partida)
+        public string avancoInicial(Partida partida)
         {
-            this.avancarPirata(0, cartasNaMao.FirstOrDefault(), partida);
+           return this.avancarPirata(0, cartasNaMao.FirstOrDefault(), partida);
         }
-        public void realizaCompra(Partida partida)
+        public string realizaCompra(Partida partida)
         {
+            string retorno;
             Pirata primeiro, segundo;
             primeiro = meusPiratas.First();
             segundo = meusPiratas.Last();
@@ -113,9 +117,10 @@ namespace Sistema_Autonomo.Classes
                 }
             });
 
-            this.retornarPirata(segundo.NumeroDaCasa, partida);
-            this.retornarPirata(primeiro.NumeroDaCasa, partida);
+            retorno = this.retornarPirata(segundo.NumeroDaCasa, partida);
+            retorno = this.retornarPirata(primeiro.NumeroDaCasa, partida);
             this.AtualizarCartasNaMao();
+            return retorno;
         }
         public string melhorCartaParaAvancarOPirata(Pirata pirata, Partida partida)
         {
@@ -148,11 +153,12 @@ namespace Sistema_Autonomo.Classes
 
             return melhorCarta;
         }
-        public void avancarPirataMaisAtrasado(Partida partida)
+        public string avancarPirataMaisAtrasado(Partida partida)
         {
             Pirata pirata = this.pirataMaisAtrasado();
 
-            this.avancarPirata(pirata.NumeroDaCasa, melhorCartaParaAvancarOPirata(pirata, partida), partida);
+            string retorno = this.avancarPirata(pirata.NumeroDaCasa, melhorCartaParaAvancarOPirata(pirata, partida), partida);
+            return retorno;
         }
     }
 }
